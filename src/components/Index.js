@@ -13,64 +13,72 @@ const Index = () => {
 
   const [infos ,setInfos] = useState([]);
   const [nameImages, setNameImages] = useState([]);
+  const [load, setLoad] = useState(true);
 
   useEffect(() => {
 
 
-     console.log('index')
+     console.log('index mount')
 
     if (localStorage.getItem('storageDateHome')) {
       const date = localStorage.getItem('storageDateHome');
       checkDataAgeToCleanLocaleStorage(date);
      }
 
-    return () => {
-      getInfo();
-    }
+     const getInfo = async () => {
 
-  }, []);
+      console.log('storage index')
+      if (localStorage.getItem('info')) {
 
+        const infosStorage = JSON.parse(localStorage.getItem('info'));
+        const imagesStorage = JSON.parse(localStorage.getItem('imageStorageIndex'));
 
-  const getInfo = async () => {
+        setInfos(infosStorage);
+        setNameImages(imagesStorage)
 
-    console.log('storage index')
-    if (localStorage.getItem('info')) {
+      } else {
 
-      const infosStorage = JSON.parse(localStorage.getItem('info'));
-      const imagesStorage = JSON.parse(localStorage.getItem('imageStorageIndex'));
+        const fetchedData = await fetchData(urlTextIntro);
 
-      setInfos(infosStorage);
-      setNameImages(imagesStorage)
+        setInfos(fetchedData);
 
-    } else {
+        const tmpImageStorage = []
 
-      const fetchedData = await fetchData(urlTextIntro);
+        fetchedData["hydra:member"].forEach(element => {
 
-      setInfos(fetchedData);
+            const filesName = fetchData( urlMain+ element.image);
 
-      const tmpImageStorage = []
+            filesName.then(data => {
 
-      fetchedData["hydra:member"].forEach(element => {
+              tmpImageStorage.push(data)
 
-          const filesName = fetchData( urlMain+ element.image);
+              setNameImages([...tmpImageStorage])
+              localStorage.setItem('imageStorageIndex', JSON.stringify(tmpImageStorage))
+            })
 
-          filesName.then(data => {
-
-            tmpImageStorage.push(data)
-
-            setNameImages([...tmpImageStorage])
-            localStorage.setItem('imageStorageIndex', JSON.stringify(tmpImageStorage))
           })
 
-        })
 
-
-      localStorage.setItem('info', JSON.stringify(fetchedData));
-      if ( !localStorage.getItem('storageDateHome') ) {
-        localStorage.setItem('storageDateHome', Date.now());
+        localStorage.setItem('info', JSON.stringify(fetchedData));
+        if ( !localStorage.getItem('storageDateHome') ) {
+          localStorage.setItem('storageDateHome', Date.now());
+        }
       }
     }
-  }
+    if(load) {
+
+      return () => {
+        getInfo();
+        setLoad(false)
+      }
+
+    }
+
+
+  }, [load, urlTextIntro, urlMain ]);
+
+
+
 
 
   // to sort images by id
