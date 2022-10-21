@@ -19,7 +19,7 @@ const TextIntroNewAdmin = () => {
   const [error, setError] = useState('');
   const navigate = useNavigate();
 
-  const urlTextIntros = `${urlMain}api/text_intros`;
+  const urlTextIntros = `${urlMain}/api/text_intros`;
   const urlCoverImage = `${urlMain}/api/cover_images`;
 
 
