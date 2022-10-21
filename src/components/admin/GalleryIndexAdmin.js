@@ -76,7 +76,7 @@ const GalleryIndexAdmin = () => {
 
   if(load) {
     return () => {
-      getInfos()
+      // getInfos()
       setLoad(false)
     }
   }

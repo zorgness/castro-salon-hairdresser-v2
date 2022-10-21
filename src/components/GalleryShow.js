@@ -72,7 +72,7 @@ const GalleryShow = () => {
     if(load) {
 
       return () => {
-        getInfos();
+        // getInfos();
         setLoad(false)
       }
     }

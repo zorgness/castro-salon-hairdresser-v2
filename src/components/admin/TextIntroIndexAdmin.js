@@ -28,7 +28,7 @@ const TextIntroIndex = () => {
      }
 
     return () => {
-      getInfo();
+      // getInfo();
     }
 
   }, []);
