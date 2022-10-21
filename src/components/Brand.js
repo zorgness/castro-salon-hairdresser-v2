@@ -36,7 +36,7 @@ const Brand = () => {
 
     <div className="bubble3"></div>
 
-    <h2 className='text-end mx-5 my-4' style={{fontFamily: 'Fasthand, recursive'}}>Les produits que j'utilises pour vous</h2>
+    <h2 className='text-end mx-5 my-4' style={{fontFamily: 'Fasthand, recursive'}}>Les produits que j'utilise pour vous</h2>
 
     <div className="d-flex justify-content-center">
       <div className='cards m-3'>
