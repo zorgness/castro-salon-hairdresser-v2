@@ -16,6 +16,9 @@ const Index = () => {
 
   useEffect(() => {
 
+
+     console.log('index')
+
     if (localStorage.getItem('storageDateHome')) {
       const date = localStorage.getItem('storageDateHome');
       checkDataAgeToCleanLocaleStorage(date);
@@ -26,7 +29,6 @@ const Index = () => {
     }
 
   }, []);
-
 
 
   const getInfo = async () => {

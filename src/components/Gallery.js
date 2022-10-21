@@ -18,6 +18,8 @@ const Gallery = () => {
 
   useEffect(() => {
 
+    console.log('gallery mount')
+
     if (localStorage.getItem('storageDateIndex')) {
       const date = localStorage.getItem('storageDateIndex');
       checkDataAgeToCleanLocaleStorage (date);

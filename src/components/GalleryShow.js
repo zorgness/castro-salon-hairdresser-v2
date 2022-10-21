@@ -80,8 +80,6 @@ const GalleryShow = () => {
 
   const {title, text} = infos;
 
-  console.log(nameImages.length)
-
   return (
     <div className='content-container index-item'>
 
