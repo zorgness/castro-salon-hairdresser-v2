@@ -6,6 +6,7 @@ import { capitalizeFirstLetter } from '../util/capitalize'
 
 const GalleryShow = () => {
 
+
   const params = useParams()
 
   const urlMain = process.env.REACT_APP_URL_MAIN
@@ -19,6 +20,8 @@ const GalleryShow = () => {
 
 
   useEffect(() => {
+
+    console.log('show')
 
     if (localStorage.getItem('storageDateIndex')) {
       const date = localStorage.getItem('storageDateIndex');
