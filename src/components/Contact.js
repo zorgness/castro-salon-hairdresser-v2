@@ -14,11 +14,11 @@ const Contact = () => {
     <Form>
       <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
         <Form.Label>Email</Form.Label>
-        <Form.Control type="email" placeholder="name@example.com" />
+        <Form.Control type="email" placeholder="" />
       </Form.Group>
       <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
         <Form.Label>Object</Form.Label>
-        <Form.Control type="email" placeholder="object" />
+        <Form.Control type="email" placeholder="" />
       </Form.Group>
       <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
         <Form.Label>Texte</Form.Label>
