@@ -2,7 +2,10 @@ export const fetchData = async (url) => {
 
   try {
 
-    const response = await fetch(url);
+    const response = await fetch(url, {
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Credentials': true
+    });
 
     if(!response.ok) {
       throw new Error();
