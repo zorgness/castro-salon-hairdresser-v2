@@ -82,7 +82,7 @@ const TextIntroNewAdmin = () => {
      <Fragment>
 
         <div className='m-3'>
-          <h1>Text Intro New</h1>
+          <h1 className='pattaya text-center text-decoration-underline'>Text Intro New</h1>
         </div>
 
         <div className='text-danger text-right'>
