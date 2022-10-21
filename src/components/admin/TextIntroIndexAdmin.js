@@ -19,6 +19,7 @@ const TextIntroIndex = () => {
   const [nameImages, setNameImages] = useState([]);
   const [show, setShow] = useState(false);
   const [idTextIntro, setIdTextIntro] = useState(null);
+  const [load, setLoad] = useState(true);
 
   useEffect(() => {
 
@@ -27,54 +28,61 @@ const TextIntroIndex = () => {
       checkDataAgeToCleanLocaleStorage(date);
      }
 
-    return () => {
-      // getInfo();
-    }
+     const getInfo = async () => {
 
-  }, []);
+      console.log('storage index')
+      if (localStorage.getItem('info')) {
 
+        const infosStorage = JSON.parse(localStorage.getItem('info'));
+        const imagesStorage = JSON.parse(localStorage.getItem('imageStorageIndex'));
 
+        setInfos(infosStorage);
+        setNameImages(imagesStorage)
 
-  const getInfo = async () => {
+      } else {
 
-    console.log('storage index')
-    if (localStorage.getItem('info')) {
+        const fetchedData = await fetchData(urlTextIntros);
 
-      const infosStorage = JSON.parse(localStorage.getItem('info'));
-      const imagesStorage = JSON.parse(localStorage.getItem('imageStorageIndex'));
+        setInfos(fetchedData);
 
-      setInfos(infosStorage);
-      setNameImages(imagesStorage)
+        const tmpImageStorage = []
 
-    } else {
+        fetchedData["hydra:member"].forEach(element => {
 
-      const fetchedData = await fetchData(urlTextIntros);
+            const filesName = fetchData(urlMain + element.image);
 
-      setInfos(fetchedData);
+            filesName.then(data => {
 
-      const tmpImageStorage = []
+              tmpImageStorage.push(data)
 
-      fetchedData["hydra:member"].forEach(element => {
+              setNameImages([...tmpImageStorage])
+              localStorage.setItem('imageStorageIndex', JSON.stringify(tmpImageStorage))
+            })
 
-          const filesName = fetchData(urlMain + element.image);
-
-          filesName.then(data => {
-
-            tmpImageStorage.push(data)
-
-            setNameImages([...tmpImageStorage])
-            localStorage.setItem('imageStorageIndex', JSON.stringify(tmpImageStorage))
           })
 
-        })
 
-
-      localStorage.setItem('info', JSON.stringify(fetchedData));
-      if ( !localStorage.getItem('storageDateHome') ) {
-        localStorage.setItem('storageDateHome', Date.now());
+        localStorage.setItem('info', JSON.stringify(fetchedData));
+        if ( !localStorage.getItem('storageDateHome') ) {
+          localStorage.setItem('storageDateHome', Date.now());
+        }
       }
     }
-  }
+    if(load) {
+
+      return () => {
+        getInfo();
+        setLoad(false)
+      }
+
+    }
+
+
+  }, [load, urlTextIntros, urlMain ]);
+
+
+
+
 
   // to sort images by id
   const sortedImages = nameImages?.sort((a,b)=> a?.id - b?.id);
