@@ -67,8 +67,10 @@ const Index = () => {
     }
     if(load) {
 
+      console.log('load')
+
       return () => {
-        // getInfo();
+        getInfo();
         setLoad(false)
       }
 

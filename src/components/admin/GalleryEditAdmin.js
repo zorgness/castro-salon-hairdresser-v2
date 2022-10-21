@@ -79,7 +79,7 @@ const GalleryEditAdmin = () => {
 
     if(load) {
       return () => {
-        // getInfos();
+        getInfos();
         setLoad(false)
       }
 
