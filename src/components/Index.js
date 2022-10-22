@@ -93,23 +93,7 @@ const Index = () => {
 
       <Banner />
 
-          <div className="index-item">
 
-          <div className='m-4 d-flex flex-wrap justify-content-around'>
-            <div className='bubble1'></div>
-                <div className="intro">
-                  <h2 className='pattaya text-black' style={{fontSize: "24px"}}>About Me</h2>
-                    <p className="">Quis enim aut eum diligat quem metuat, aut eum a quo se metui putet? Coluntur tamen simulatione dumtaxat ad tempus. Quod si forte, ut fit plerumque, ceciderunt, tum intellegitur quam fuerint inopes amicorum. Quod Tarquinium dixisse ferunt, tum exsulantem se intellexisse quos fidos amicos habuisset, quos infidos, cum iam neutris gratiam referre posset.</p>
-                </div>
-
-                <div className='text-center image-intro' >
-                  <div>
-                  <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8aGFpcnxlbnwwfHwwfHw%3D&w=1000&q=80" alt="" className="image-index m-2 rounded "  />
-                  </div>
-                </div>
-
-                </div>
-         </div>
       {
 
     infos?.['hydra:member']?.map(({id, title, text} , index )=> {
