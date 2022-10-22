@@ -106,7 +106,7 @@ const GalleryShow = () => {
           }
           <div className='item-show-container'>
 
-            <div className="bubble2"></div>
+
 
             <div className="show-item"><p style={{minWidth: '240px'}}>{text}</p></div>
 
