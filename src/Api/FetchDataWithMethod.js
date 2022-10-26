@@ -3,6 +3,10 @@ export const fetchDataWithMethod = async (url, method, options) => {
 
   try {
 
+    if(localStorage.getItem('jwtToken')) {
+      options.Authorization = 'Bearer ' + localStorage.getItem('jwt');
+    }
+
     const response = await fetch(url, {
       method: method,
       headers: {
