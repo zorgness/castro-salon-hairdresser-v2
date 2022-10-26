@@ -1,5 +1,7 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { Provider } from 'react-redux';
+import store from './Redux/store';
 import Navigation from './components/Navigation';
 import Footer from './components/Footer'
 import Index from './components/Index';
@@ -22,6 +24,8 @@ function App() {
   return (
     <div className="App">
 
+      <Provider store={store} >
+
       <Navigation />
 
       <BrowserRouter>
@@ -40,6 +44,8 @@ function App() {
       </BrowserRouter>
 
       <Footer />
+
+      </Provider>
 
     </div>
   );
