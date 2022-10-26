@@ -8,13 +8,9 @@ import { userLoginAttempt, closeModal} from '../Redux/actions/loginAction';
 
 const Login = ({apiData, loginUser, closeModal}) => {
 
-
-
-  const [user, setUser] = useState({});
+  // const [user, setUser] = useState({});
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-
-
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -34,7 +30,6 @@ const Login = ({apiData, loginUser, closeModal}) => {
 
       <MyVerticallyCenteredModal
               show={apiData.modal}
-              user={user}
               onHide={() => closeModal()}
             />
 
@@ -76,12 +71,10 @@ const mapStateToProps = state => {
   }
 }
 
-
 const mapDispatchToProps = dispatch => {
   return {
       loginUser: options => dispatch(userLoginAttempt(options)),
       closeModal: () => dispatch(closeModal())
-
   }
 }
 
