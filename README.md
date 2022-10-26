@@ -6,7 +6,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Hairdresser web site 
 
-* Back-end: Symfony V6 Api/Platform
+* Back-end: Symfony V6 Api/Platform https://github.com/zorgness/castro-salon
 * Front-end: React JS 
 * Object storage: AWS S3
 
