@@ -6,7 +6,9 @@ import Logo from '../images/logo.jpg'
 
 
 
-function Navigation() {
+const Navigation = ({isAuthenticated, userData}) => {
+
+
   return (
     <>
       <Navbar collapseOnSelect expand="lg" bg="white" variant="white" className="border border-bottom-dark">
@@ -26,7 +28,15 @@ function Navigation() {
                 <Nav.Link href="/" className='mx-5'>Acceuil</Nav.Link>
                 <Nav.Link href="/gallerie" className='mx-5'>Gallerie</Nav.Link>
                 <Nav.Link href="/contact" className='mx-5'>Contact</Nav.Link>
-                {/* <Nav.Link href="/login" className='mx-5'>Login</Nav.Link> */}
+                {
+                  isAuthenticated && (
+                    <>
+                      <Nav.Link href="/admin_text_intro_index" className='mx-5'>AdminIntro</Nav.Link>
+                      <Nav.Link href="/admin_gallery_index" className='mx-5'>AdminGallery</Nav.Link>
+                      <Nav.Link href="/" className='mx-5'>Logout</Nav.Link>
+                    </>
+                  )
+                }
               </Nav>
             </Navbar.Collapse>
 

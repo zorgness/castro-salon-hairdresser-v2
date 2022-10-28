@@ -18,7 +18,7 @@ const Index = () => {
   useEffect(() => {
 
 
-     console.log('index mount')
+
 
     if (localStorage.getItem('storageDateHome')) {
       const date = localStorage.getItem('storageDateHome');
@@ -67,8 +67,6 @@ const Index = () => {
     }
     if(load) {
 
-      console.log('load')
-
       return () => {
         getInfo();
         setLoad(false)
@@ -78,9 +76,6 @@ const Index = () => {
 
 
   }, [load, urlTextIntro, urlMain ]);
-
-
-
 
 
   // to sort images by id

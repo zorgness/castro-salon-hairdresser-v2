@@ -1,21 +1,23 @@
 import React, {useState, Fragment} from 'react'
 import { connect } from 'react-redux'
+import { useNavigate } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Container from 'react-bootstrap/Container';
 import MyVerticallyCenteredModal from './Modal';
 import { userLoginAttempt, closeModal} from '../Redux/actions/loginAction';
 
-const Login = ({apiData, loginUser, closeModal}) => {
+const Login = ({authData, auth, closeModal}) => {
 
   // const [user, setUser] = useState({});
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  let navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const options = {email: email, password: password }
-    loginUser(options)
+    auth(options)
 
   };
 
@@ -23,20 +25,27 @@ const Login = ({apiData, loginUser, closeModal}) => {
 
   const handlePassword = event => setPassword(event.target.value);
 
+  const handleCloseModal = () => {
+    setEmail('')
+    setPassword('')
+    closeModal()
+    navigate('/admin_text_intro_index')
+  }
+
 
   return (
 
     <Fragment>
 
       <MyVerticallyCenteredModal
-              show={apiData.modal}
-              onHide={() => closeModal()}
+              show={authData.modal}
+              onHide={() => handleCloseModal()}
             />
 
     <Container>
 
         {
-          apiData?.error && <p className='text-white position-absolute bg-dark'>{apiData?.error}</p>
+          authData?.error && <p className='text-white position-absolute bg-dark'>{authData?.error}</p>
         }
 
         <Form onSubmit={handleSubmit}>
@@ -67,13 +76,13 @@ const Login = ({apiData, loginUser, closeModal}) => {
 
 const mapStateToProps = state => {
   return {
-    apiData: state.loginUser
+    authData: state.auth
   }
 }
 
 const mapDispatchToProps = dispatch => {
   return {
-      loginUser: options => dispatch(userLoginAttempt(options)),
+      auth: options => dispatch(userLoginAttempt(options)),
       closeModal: () => dispatch(closeModal())
   }
 }

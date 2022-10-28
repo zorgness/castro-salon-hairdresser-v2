@@ -9,6 +9,7 @@ import { galleryDestroy } from './adminDestroy';
 import { deleteImageFromS3 } from "../../S3/S3";
 import { capitalizeFirstLetter } from '../../util/capitalize';
 
+
 const GalleryIndexAdmin = () => {
 
   const imagePath = process.env.REACT_APP_AWS_S3_URL;
@@ -115,6 +116,7 @@ const GalleryIndexAdmin = () => {
 
   return (
     <div className='index-item'>
+
 
         <div className='pattaya text-center text-decoration-underline' style={{fontSize: '48px'}}>Gallery Index</div>
 

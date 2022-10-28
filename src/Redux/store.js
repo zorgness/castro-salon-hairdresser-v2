@@ -6,7 +6,7 @@ import { tokenMiddleware } from './middleware';
 
 const store = configureStore({
   reducer : {
-    loginUser: authReducer
+    auth: authReducer
   },
   middleware: (getDefaultMiddleware) =>
   getDefaultMiddleware().concat(tokenMiddleware)

@@ -109,9 +109,11 @@ const TextIntroIndex = () => {
 
   return (
 
-    <div>
+    <div className='index-item'>
 
-    <h2>Edit Introduction</h2>
+
+
+      <div className='pattaya text-center text-decoration-underline' style={{fontSize: '48px'}}>Intro Index</div>
 
     {
            show &&
@@ -133,19 +135,16 @@ const TextIntroIndex = () => {
 
               <Fragment key={id}>
 
-                  <div className='m-5'>
+                  <div className='m-5 text-center'>
                     <h2 className='pattaya text-black' style={{fontSize: "24px"}}>{title}</h2>
-                    {sortedImages[index] !== undefined && <img src={imagePath + sortedImages[index]?.name} alt={sortedImages[index]?.name} className="avatar-super-large" />}
+                    {sortedImages[index] !== undefined && <img src={imagePath + sortedImages[index]?.name} alt={sortedImages[index]?.name} className="avatar-super-large m-3" />}
                     <p>{text}</p>
                   </div>
 
-                  <Button variant="danger" onClick={() => handleShow(id)}>Supprimer</Button>
+                  <div className="text-center">
+                    <Button  variant="danger" onClick={() => handleShow(id)}>Supprimer</Button>
+                  </div>
 
-
-
-                  {/* {sortedImages[index] !== undefined &&     <div className="card-category" style={{ backgroundImage: `url(${imagePath + sortedImages[index]?.name})` }}>
-                      <h3>{title}</h3>
-                  </div>} */}
 
               </Fragment>
 

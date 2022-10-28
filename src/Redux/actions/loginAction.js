@@ -9,7 +9,8 @@ const userLoginSuccess = (token, userId) => {
     type: USER_LOGIN_SUCCESS,
     token,
     userId,
-
+    modal: true,
+    isAuthenticated: true
   }
 }
 
@@ -29,20 +30,11 @@ const openModal = () => {
 }
 
 export const closeModal = () => {
-  console.log('close')
   return {
     type: USER_CLOSE_MODAL,
     modal: false
-
   }
 }
-
-// export const closeModal = () => {
-//   console.log('close')
-//   return (dispatch) => {
-//     return dispatch(userCloseModal)
-//   }
-// }
 
 export const userLoginAttempt = (options) => {
   return (dispatch) => {

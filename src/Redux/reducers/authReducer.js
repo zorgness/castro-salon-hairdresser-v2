@@ -1,10 +1,20 @@
-import { USER_LOGIN_SUCCESS, USER_LOGIN_FAILED, USER_CLOSE_MODAL, USER_OPEN_MODAL  } from "../constants"
+import {
+  USER_LOGIN_SUCCESS,
+  USER_LOGIN_FAILED,
+  USER_CLOSE_MODAL,
+  USER_OPEN_MODAL,
+  USER_PROFILE_RECEIVED,
+  USER_PROFILE_REQUEST,
+  USER_PROFILE_ERROR
+  } from "../constants"
 
 const initialState = {
   token: null,
   userId: null,
   error: null,
-  modal: false
+  modal: false,
+  isAuthenticated: false,
+  userData: null
 }
 
 const authReducer = (state=initialState, action) => {
@@ -14,7 +24,8 @@ const authReducer = (state=initialState, action) => {
         ...state,
         token: action.token,
         userId: action.userId,
-        modal: true
+        modal: true,
+        isAuthenticated: true
       }
     case USER_LOGIN_FAILED:
       return {
@@ -30,6 +41,11 @@ const authReducer = (state=initialState, action) => {
       return {
         ...state,
         modal: false
+      }
+    case USER_PROFILE_RECEIVED:
+      return {
+        ...state,
+        userData: action.userData
       }
     default:
       return state

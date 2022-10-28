@@ -1,7 +1,8 @@
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Provider } from 'react-redux';
-import store from './Redux/store';
+import { connect } from 'react-redux'
+import { fetchUserProfile } from '../src/Redux/actions/profileAction'
 import Navigation from './components/Navigation';
 import Footer from './components/Footer'
 import Index from './components/Index';
@@ -20,13 +21,27 @@ import GalleryEditAdmin from './components/admin/GalleryEditAdmin';
 import TextIntroNewAdmin from './components/admin/TextIntroNewAdmin';
 import TextIntroIndexAdmin from './components/admin/TextIntroIndexAdmin';
 
-function App() {
+
+const App = ({authData, userProfile}) =>  {
+
+
+  useEffect(() => {
+
+          if(authData.userId !== null) {
+            userProfile(authData.userId)
+          }
+
+  }, [authData.userId, userProfile])
+
+
+
   return (
     <div className="App">
 
-      <Provider store={store} >
-
-      <Navigation />
+      <Navigation
+        isAuthenticated={authData.isAuthenticated}
+        userData={authData.userData}
+       />
 
       <BrowserRouter>
         <Routes>
@@ -45,10 +60,22 @@ function App() {
 
       <Footer />
 
-      </Provider>
+
 
     </div>
   );
 }
 
-export default App;
+const mapStateToProps = state => {
+  return {
+    authData: state.auth
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    userProfile: userId => dispatch(fetchUserProfile(userId))
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
