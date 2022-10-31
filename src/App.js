@@ -2,6 +2,7 @@ import React, {useState, useEffect } from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { connect } from 'react-redux'
+import { userLogout } from './Redux/actions/loginAction'
 import { fetchData} from './Api/FecthData'
 import Navigation from './components/Navigation';
 import Footer from './components/Footer'
@@ -22,13 +23,14 @@ import TextIntroNewAdmin from './components/admin/TextIntroNewAdmin';
 import TextIntroIndexAdmin from './components/admin/TextIntroIndexAdmin';
 
 
-const App = ({authData}) =>  {
+const App = ({authData, logout}) =>  {
 
 
 
   const [user, setUser] = useState()
   const [authenticated, setAuthenticated] = useState()
   const [load, setLoad] = useState(true)
+
 
   // localStorage.clear()
   // sessionStorage.clear()
@@ -48,39 +50,40 @@ const App = ({authData}) =>  {
           console.log('storage auth')
           setUser(JSON.parse(sessionStorage.getItem('userData')))
           setAuthenticated(isAuthenticated)
-          setLoad(false)
+
 
         } else {
 
             console.log('api auth')
             getUserData(userId)
             setAuthenticated(isAuthenticated)
-            setLoad(false)
 
         }
       }
-
-
-
     }
+    return(() => {
+      setLoad(false)
+    })
+  }, [load]);
 
 
-  }, [load])
-
-
-  const getUserData = async id => {
+  const getUserData = id => {
 
     const urlMain = process.env.REACT_APP_URL_MAIN
     const userProfileUrl = `${urlMain}/api/users`
 
-    await fetchData(userProfileUrl + '/' + id).then(res => {
+    fetchData(userProfileUrl + '/' + id).then(res => {
       setUser(res)
       sessionStorage.setItem('userData', JSON.stringify(res))
     })
+  };
 
-  }
+  const handleLogout = () => {
+    logout()
+    localStorage.clear()
+    sessionStorage.clear()
 
-
+  };
 
 
   return (
@@ -89,6 +92,7 @@ const App = ({authData}) =>  {
       <Navigation
         isAuthenticated={authenticated}
         userData={user}
+        logout={handleLogout}
        />
 
       <BrowserRouter>
@@ -114,16 +118,19 @@ const App = ({authData}) =>  {
   );
 }
 
-const mapStateToProps = state => {
+
+const mapStateToProps = (state) => {
   return {
     authData: state.auth
   }
+
 }
 
-// const mapDispatchToProps = dispatch => {
-//   return {
-//     userProfile: userId => dispatch(fetchUserProfile(userId))
-//   }
-// }
 
-export default connect(mapStateToProps, null)(App);
+const mapDispatchToProps = dispatch => {
+  return {
+    logout: () => dispatch(userLogout())
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

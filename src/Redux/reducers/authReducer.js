@@ -3,7 +3,8 @@ import {
   USER_LOGIN_FAILED,
   USER_CLOSE_MODAL,
   USER_OPEN_MODAL,
-  USER_PROFILE_RECEIVED
+  USER_LOGOUT
+
   } from "../constants"
 
 const initialState = {
@@ -11,8 +12,7 @@ const initialState = {
   userId: null,
   error: null,
   modal: false,
-  isAuthenticated: false,
-  userData: null
+  isAuthenticated: false
 }
 
 const authReducer = (state=initialState, action) => {
@@ -40,10 +40,15 @@ const authReducer = (state=initialState, action) => {
         ...state,
         modal: false
       }
-    case USER_PROFILE_RECEIVED:
+    case USER_LOGOUT:
       return {
         ...state,
-        userData: action.userData
+        token: null,
+        userId: null,
+        error: null,
+        modal: false,
+        isAuthenticated: false
+
       }
 
     default:

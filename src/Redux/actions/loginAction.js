@@ -1,4 +1,4 @@
-import { USER_LOGIN_SUCCESS, USER_LOGIN_FAILED, USER_OPEN_MODAL, USER_CLOSE_MODAL   } from "../constants"
+import { USER_LOGIN_SUCCESS, USER_LOGIN_FAILED, USER_OPEN_MODAL, USER_CLOSE_MODAL, USER_LOGOUT } from "../constants"
 import { fetchDataWithMethod } from "../../Api/FetchDataWithMethod"
 
 const urlMain = process.env.REACT_APP_URL_MAIN
@@ -12,14 +12,14 @@ const userLoginSuccess = (token, userId) => {
     modal: true,
     isAuthenticated: true
   }
-}
+};
 
 const userLoginError = error => {
   return {
     type: USER_LOGIN_FAILED ,
     error
   }
-}
+};
 
 const openModal = () => {
 
@@ -27,14 +27,14 @@ const openModal = () => {
     type: USER_OPEN_MODAL,
     modal: true
   }
-}
+};
 
 export const closeModal = () => {
   return {
     type: USER_CLOSE_MODAL,
     modal: false
   }
-}
+};
 
 export const userLoginAttempt = (options) => {
   return (dispatch) => {
@@ -44,4 +44,12 @@ export const userLoginAttempt = (options) => {
       dispatch(userLoginError(err.message))
     })
   }
-}
+};
+
+export const userLogout = () => {
+
+  return {
+    type: USER_LOGOUT
+  }
+
+};
