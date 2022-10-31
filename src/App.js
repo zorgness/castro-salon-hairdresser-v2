@@ -2,7 +2,7 @@ import React, {useState, useEffect } from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { connect } from 'react-redux'
-import { fetchUserProfile } from '../src/Redux/actions/profileAction'
+import { fetchData} from './Api/FecthData'
 import Navigation from './components/Navigation';
 import Footer from './components/Footer'
 import Index from './components/Index';
@@ -22,7 +22,9 @@ import TextIntroNewAdmin from './components/admin/TextIntroNewAdmin';
 import TextIntroIndexAdmin from './components/admin/TextIntroIndexAdmin';
 
 
-const App = ({authData, userProfile}) =>  {
+const App = ({authData}) =>  {
+
+
 
   const [user, setUser] = useState()
   const [authenticated, setAuthenticated] = useState()
@@ -36,6 +38,7 @@ const App = ({authData, userProfile}) =>  {
     const userId = localStorage.getItem('userId');
     const isAuthenticated = localStorage.getItem('authenticated');
 
+
     if (load) {
 
       if (userId) {
@@ -43,31 +46,42 @@ const App = ({authData, userProfile}) =>  {
         if (sessionStorage.getItem('userData')) {
 
           console.log('storage auth')
-          setUser(JSON.parse(sessionStorage.getItem('user')))
+          setUser(JSON.parse(sessionStorage.getItem('userData')))
           setAuthenticated(isAuthenticated)
           setLoad(false)
 
         } else {
 
-            console.log(userId)
             console.log('api auth')
-            userProfile(userId)
-            // console.log(authData.userData)
-            setUser(authData.userData)
+            getUserData(userId)
             setAuthenticated(isAuthenticated)
-            sessionStorage.setItem('userdata', JSON.stringify(authData.userData))
             setLoad(false)
 
         }
       }
 
+
+
     }
 
 
-  }, [load, authData.userData, userProfile, authData.isAuthenticated])
+  }, [load])
 
 
-  console.log(user)
+  const getUserData = async id => {
+
+    const urlMain = process.env.REACT_APP_URL_MAIN
+    const userProfileUrl = `${urlMain}/api/users`
+
+    await fetchData(userProfileUrl + '/' + id).then(res => {
+      setUser(res)
+      sessionStorage.setItem('userData', JSON.stringify(res))
+    })
+
+  }
+
+
+
 
   return (
     <div className="App">
@@ -106,10 +120,10 @@ const mapStateToProps = state => {
   }
 }
 
-const mapDispatchToProps = dispatch => {
-  return {
-    userProfile: userId => dispatch(fetchUserProfile(userId))
-  }
-}
+// const mapDispatchToProps = dispatch => {
+//   return {
+//     userProfile: userId => dispatch(fetchUserProfile(userId))
+//   }
+// }
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(mapStateToProps, null)(App);
