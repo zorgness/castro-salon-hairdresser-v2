@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, {useState, useEffect } from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { connect } from 'react-redux'
@@ -24,23 +24,57 @@ import TextIntroIndexAdmin from './components/admin/TextIntroIndexAdmin';
 
 const App = ({authData, userProfile}) =>  {
 
+  const [user, setUser] = useState()
+  const [authenticated, setAuthenticated] = useState()
+  const [load, setLoad] = useState(true)
+
+  // localStorage.clear()
+  // sessionStorage.clear()
 
   useEffect(() => {
 
-          if(authData.userId !== null) {
-            userProfile(authData.userId)
-          }
+    const userId = localStorage.getItem('userId');
+    const isAuthenticated = localStorage.getItem('authenticated');
 
-  }, [authData.userId, userProfile])
+    if (load) {
+
+      if (userId) {
+
+        if (sessionStorage.getItem('userData')) {
+
+          console.log('storage auth')
+          setUser(JSON.parse(sessionStorage.getItem('user')))
+          setAuthenticated(isAuthenticated)
+          setLoad(false)
+
+        } else {
+
+            console.log(userId)
+            console.log('api auth')
+            userProfile(userId)
+            // console.log(authData.userData)
+            setUser(authData.userData)
+            setAuthenticated(isAuthenticated)
+            sessionStorage.setItem('userdata', JSON.stringify(authData.userData))
+            setLoad(false)
+
+        }
+      }
+
+    }
 
 
+  }, [load, authData.userData, userProfile, authData.isAuthenticated])
+
+
+  console.log(user)
 
   return (
     <div className="App">
 
       <Navigation
-        isAuthenticated={authData.isAuthenticated}
-        userData={authData.userData}
+        isAuthenticated={authenticated}
+        userData={user}
        />
 
       <BrowserRouter>

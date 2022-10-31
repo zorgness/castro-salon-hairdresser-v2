@@ -3,9 +3,7 @@ import {
   USER_LOGIN_FAILED,
   USER_CLOSE_MODAL,
   USER_OPEN_MODAL,
-  USER_PROFILE_RECEIVED,
-  USER_PROFILE_REQUEST,
-  USER_PROFILE_ERROR
+  USER_PROFILE_RECEIVED
   } from "../constants"
 
 const initialState = {
@@ -47,6 +45,7 @@ const authReducer = (state=initialState, action) => {
         ...state,
         userData: action.userData
       }
+
     default:
       return state
   }
