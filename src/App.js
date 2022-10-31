@@ -1,9 +1,6 @@
-import React, {useState, useEffect } from 'react';
+import React from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { connect } from 'react-redux'
-import { userLogout } from './Redux/actions/loginAction'
-import { fetchData} from './Api/FecthData'
 import Navigation from './components/Navigation';
 import Footer from './components/Footer'
 import Index from './components/Index';
@@ -23,77 +20,13 @@ import TextIntroNewAdmin from './components/admin/TextIntroNewAdmin';
 import TextIntroIndexAdmin from './components/admin/TextIntroIndexAdmin';
 
 
-const App = ({authData, logout}) =>  {
-
-
-
-  const [user, setUser] = useState()
-  const [authenticated, setAuthenticated] = useState()
-  const [load, setLoad] = useState(true)
-
-
-  // localStorage.clear()
-  // sessionStorage.clear()
-
-  useEffect(() => {
-
-    const userId = localStorage.getItem('userId');
-    const isAuthenticated = localStorage.getItem('authenticated');
-
-
-    if (load) {
-
-      if (userId) {
-
-        if (sessionStorage.getItem('userData')) {
-
-          console.log('storage auth')
-          setUser(JSON.parse(sessionStorage.getItem('userData')))
-          setAuthenticated(isAuthenticated)
-
-
-        } else {
-
-            console.log('api auth')
-            getUserData(userId)
-            setAuthenticated(isAuthenticated)
-
-        }
-      }
-    }
-    return(() => {
-      setLoad(false)
-    })
-  }, [load]);
-
-
-  const getUserData = id => {
-
-    const urlMain = process.env.REACT_APP_URL_MAIN
-    const userProfileUrl = `${urlMain}/api/users`
-
-    fetchData(userProfileUrl + '/' + id).then(res => {
-      setUser(res)
-      sessionStorage.setItem('userData', JSON.stringify(res))
-    })
-  };
-
-  const handleLogout = () => {
-    logout()
-    localStorage.clear()
-    sessionStorage.clear()
-
-  };
+const App = () =>  {
 
 
   return (
     <div className="App">
 
-      <Navigation
-        isAuthenticated={authenticated}
-        userData={user}
-        logout={handleLogout}
-       />
+      <Navigation />
 
       <BrowserRouter>
         <Routes>
@@ -119,18 +52,6 @@ const App = ({authData, logout}) =>  {
 }
 
 
-const mapStateToProps = (state) => {
-  return {
-    authData: state.auth
-  }
-
-}
 
 
-const mapDispatchToProps = dispatch => {
-  return {
-    logout: () => dispatch(userLogout())
-  }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default App;
