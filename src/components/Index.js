@@ -17,9 +17,6 @@ const Index = () => {
 
   useEffect(() => {
 
-
-
-
     if (localStorage.getItem('storageDateHome')) {
       const date = localStorage.getItem('storageDateHome');
       checkDataAgeToCleanLocaleStorage(date);
@@ -56,7 +53,7 @@ const Index = () => {
               localStorage.setItem('imageStorageIndex', JSON.stringify(tmpImageStorage))
             })
 
-          })
+          });
 
 
         localStorage.setItem('info', JSON.stringify(fetchedData));
@@ -73,72 +70,59 @@ const Index = () => {
       }
 
     }
-
-
   }, [load, urlTextIntro, urlMain ]);
 
 
   // to sort images by id
   const sortedImages = nameImages?.sort((a,b)=> a?.id - b?.id);
 
-
   return (
 
     <div className='content-container'>
 
-      <Banner />
-
+        <Banner />
 
       {
 
-    infos?.['hydra:member']?.map(({id, title, text} , index )=> {
+      infos?.['hydra:member']?.map(({id, title, text} , index )=> {
 
-         const styleByIndex = index % 2 === 0 ?  "m-4 d-flex flex-wrap justify-content-around" : "m-4 d-flex flex-wrap justify-content-around flex-row-reverse"
+          const styleByIndex = index % 2 === 0 ?  "m-4 d-flex flex-wrap justify-content-around" : "m-4 d-flex flex-wrap justify-content-around flex-row-reverse"
 
-        const bubble = index % 2 === 0 ? <div className='bubble1'></div> : <div className='bubble2'></div>
+          const bubble = index % 2 === 0 ? <div className='bubble1'></div> : <div className='bubble2'></div>
 
 
-        return (
+          return (
 
             <div className="index-item" key={id} >
 
+              <div className={styleByIndex}>
 
+                {
+                  bubble
+                }
 
+                  <div className="intro">
+                    <h2 className='pattaya text-black' style={{fontSize: "24px"}}>{capitalizeFirstLetter(title)}</h2>
+                      <p className="">{text}</p>
+                  </div>
 
-            <div className={styleByIndex}>
+                  <div className='text-center image-intro' >
+                    <div>
+                      {sortedImages[index] !== undefined && <img src={imagePath + sortedImages[index]?.name} alt={sortedImages[index]?.name} className="image-index m-2 rounded " />}
+                    </div>
+                  </div>
 
-              {
-                bubble
-              }
-
-              <div className="intro">
-                <h2 className='pattaya text-black' style={{fontSize: "24px"}}>{capitalizeFirstLetter(title)}</h2>
-                  <p className="">{text}</p>
               </div>
 
+            </div>
 
+            )
+            })
+        }
 
-
-
-                <div className='text-center image-intro' >
-                  <div>
-                    {sortedImages[index] !== undefined && <img src={imagePath + sortedImages[index]?.name} alt={sortedImages[index]?.name} className="image-index m-2 rounded " />}
-                  </div>
-                </div>
-
+        <div className="index-item2">
+          <Brand />
         </div>
-
-        </div>
-
-           )
-          })
-      }
-
-      <div className="index-item2">
-         <Brand />
-      </div>
-
-
 
     </div>
   )

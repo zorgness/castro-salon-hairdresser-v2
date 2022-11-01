@@ -53,9 +53,6 @@ const authReducer = (state=initialState, action) => {
       return {
         ...state,
         userData: action.userData
-        // userData: (state.userId === action.userId && state.userData === null)
-        //   ? action.userData : state.userData,
-        // isAuthenticated: (state.userId === action.userId && state.userData === null)
       };
     case USER_LOGOUT:
       return {

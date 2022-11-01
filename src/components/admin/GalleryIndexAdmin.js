@@ -39,7 +39,7 @@ const GalleryIndexAdmin = () => {
 
     if (isInLocaleStorage) {
 
-      console.log('storage gallery')
+
 
       const infoStorage = JSON.parse(localStorage.getItem('infoStorageGallery'));
       const imageStorage = JSON.parse(localStorage.getItem('imageStorageGallery'));
@@ -49,7 +49,7 @@ const GalleryIndexAdmin = () => {
 
     } else {
 
-      console.log('api')
+
       const fetchedData = await fetchData(urlBlogPosts);
       setInfos(fetchedData);
 

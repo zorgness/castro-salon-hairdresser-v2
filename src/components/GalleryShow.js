@@ -6,7 +6,6 @@ import { capitalizeFirstLetter } from '../util/capitalize'
 
 const GalleryShow = () => {
 
-
   const params = useParams()
 
   const urlMain = process.env.REACT_APP_URL_MAIN
@@ -17,11 +16,7 @@ const GalleryShow = () => {
   const [nameImages, setNameImages] = useState([]);
   const [load, setLoad] = useState(true);
 
-
-
   useEffect(() => {
-
-    console.log('show')
 
     if (localStorage.getItem('storageDateIndex')) {
       const date = localStorage.getItem('storageDateIndex');
@@ -42,8 +37,6 @@ const GalleryShow = () => {
       setNameImages(imagesStorage);
 
     } else {
-
-      console.log("api")
 
       const fetchedData = await fetchData(urlBlogPosts);
       setInfos(fetchedData);
@@ -80,7 +73,6 @@ const GalleryShow = () => {
   }, [infos, load, params.id, urlBlogPosts, urlMain]);;
 
 
-
   const {title, text} = infos;
 
   return (
@@ -91,8 +83,6 @@ const GalleryShow = () => {
       <h1 className="pattaya text-center m-5 text-decoration-underline" style={{fontSize: '48px', position: 'relative'}}>
         {capitalizeFirstLetter(title ?? '')}
       </h1>
-
-
 
       <div className='item-show-container' >
 
@@ -106,22 +96,12 @@ const GalleryShow = () => {
           }
           <div className='item-show-container'>
 
-
-
             <div className="show-item"><p style={{minWidth: '240px'}}>{text}</p></div>
 
             <div className="show-item"><img src={imagePath + nameImages?.[nameImages.length - 1]?.name} alt={""} width={240} height={'auto'} className="rounded"  /></div>
 
           </div>
-
-
-
       </div>
-
-
-
-
-
     </div>
   )
 }

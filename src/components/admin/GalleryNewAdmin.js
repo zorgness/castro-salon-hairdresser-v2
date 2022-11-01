@@ -57,7 +57,7 @@ const GalleryNewAdmin = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (selectedFiles.length > 3) {
-        setError('5 images maximum')
+        setError('3 images maximum')
         return
     }
 
@@ -82,7 +82,6 @@ const GalleryNewAdmin = () => {
   }
 
 
-
   return (
 
      <div className='content-container index-item'>
@@ -91,8 +90,6 @@ const GalleryNewAdmin = () => {
           <h1 className='pattaya text-center text-decoration-underline' style={{fontSize: '48px'}}>Gallery New</h1>
         </div>
 
-
-
         <div className='text-danger text-right'>
           <p>{ error }</p>
         </div>
@@ -100,7 +97,8 @@ const GalleryNewAdmin = () => {
        { success   && <div className='text-success text-right'>
           <p>{ success }<img src={Butterfly} alt="butterfly" className="avatar-small"/></p>
         </div>
-      }
+       }
+
       <Container>
         <Form onSubmit={handleSubmit}>
           <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
