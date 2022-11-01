@@ -76,7 +76,7 @@ const GalleryShow = () => {
   const {title, text} = infos;
 
   return (
-    <div className='content-container index-item'>
+    <div className='content-container index-item1'>
 
       <div className="bubble3" style={{backgroundColor: 'lavender'}}></div>
 

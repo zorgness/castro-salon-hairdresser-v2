@@ -109,7 +109,7 @@ const TextIntroIndex = () => {
 
   return (
 
-    <div className='index-item'>
+    <div className='index-item1'>
 
       <div className='pattaya text-center text-decoration-underline' style={{fontSize: '48px'}}>Intro Index</div>
 

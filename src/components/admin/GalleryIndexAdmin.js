@@ -118,7 +118,7 @@ const GalleryIndexAdmin = () => {
 
 
   return (
-    <div className='index-item'>
+    <div className='index-item1'>
 
 
         <div className='pattaya text-center text-decoration-underline' style={{fontSize: '48px'}}>Gallery Index</div>

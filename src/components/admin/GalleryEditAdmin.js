@@ -181,7 +181,7 @@ const GalleryEditAdmin = () => {
 
   return (
 
-    <div className='index-item'>
+    <div className='index-item1'>
 
 
       <h1 className='pattaya text-center text-decoration-underline m-3' style={{fontSize: '48px'}}>Gallery Edition</h1>

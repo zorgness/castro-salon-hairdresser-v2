@@ -85,7 +85,7 @@ const GalleryNewAdmin = () => {
 
   return (
 
-     <div className='content-container index-item'>
+     <div className='content-container index-item1'>
 
         <div className='m-3'>
           <h1 className='pattaya text-center text-decoration-underline' style={{fontSize: '48px'}}>Gallery New</h1>

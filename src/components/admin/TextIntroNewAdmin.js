@@ -1,4 +1,4 @@
-import React, {Fragment, useState}  from 'react'
+import React, {useState}  from 'react'
 import { useNavigate } from "react-router-dom";
 import Form from 'react-bootstrap/Form';
 import Container from 'react-bootstrap/Container';
@@ -75,7 +75,7 @@ const TextIntroNewAdmin = () => {
 
   return (
 
-     <Fragment>
+     <div className='index-item1'>
 
         <div className='m-3'>
           <h1 className='pattaya text-center text-decoration-underline' style={{fontSize: '48px'}}>Text Intro New</h1>
@@ -115,7 +115,7 @@ const TextIntroNewAdmin = () => {
         </Form>
       </Container>
 
-    </Fragment>
+    </div>
   )
 }
 

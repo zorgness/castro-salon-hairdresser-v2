@@ -1,0 +1,42 @@
+
+.banner1 {
+  background-size: cover;
+  background-position: center;
+  padding: 150px 0;
+  background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://i2-prod.dailyrecord.co.uk/incoming/article24752618.ece/ALTERNATES/s615/1_gettyimages-1135612912-170667a.jpg);
+
+}
+
+.banner2 {
+  background-size: cover;
+  background-position: center;
+  padding: 150px 0;
+  background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://i.ibb.co/TY4W68S/image-2-Large.jpg);
+
+}
+
+.banner3 {
+  background-size: cover;
+  background-position: center;
+  padding: 150px 0;
+  background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://i.ibb.co/hcGPGZd/brendan-church-t-X-WLctdhvw-unsplash.jpg);
+
+}
+
+
+.ban h1 {
+  margin: 0;
+  color: white;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-size: 32px;
+  font-weight: bold;
+  text-align: center;;
+}
+
+.ban h5 {
+  font-size: 20px;
+  color: white;
+  opacity: .7;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  text-align: center;
+}

@@ -6,7 +6,7 @@ import Container from 'react-bootstrap/Container';
 
 const Contact = () => {
   return (
-    <div className='index-item'>
+    <div className='index-item1'>
 
     <h1 className='pattaya text-center m-3' style={{fontSize: "48px", textDecoration: " black  underline"}}>Contactez-moi</h1>
 

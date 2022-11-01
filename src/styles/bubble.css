@@ -1,0 +1,31 @@
+.bubble1 {
+  position: absolute;
+  background-color: green;
+  opacity: 0.2;
+  height: 62px;
+  width: 62px;
+  border-radius: 50%;
+  left: 40px;
+
+}
+
+.bubble2 {
+  position: absolute;
+  background-color: chocolate;
+  opacity: 0.1;
+  height: 88px;
+  width: 88px;
+  border-radius: 50%;
+  right: 80px;
+  margin-top: 120px
+}
+
+.bubble3 {
+  position: absolute;
+  opacity: 0.6;
+  height: 62px;
+  width: 62px;
+  border-radius: 50%;
+  margin-left: 10vh;
+  margin-top: 20px;
+}

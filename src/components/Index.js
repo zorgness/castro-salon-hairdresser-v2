@@ -93,7 +93,7 @@ const Index = () => {
 
           return (
 
-            <div className="index-item" key={id} >
+            <div className={`index-item${index + 1}`} key={id} >
 
               <div className={styleByIndex}>
 
@@ -106,7 +106,7 @@ const Index = () => {
                       <p className="">{text}</p>
                   </div>
 
-                  <div className='text-center image-intro' >
+                  <div className='text-center' >
                     <div>
                       {sortedImages[index] !== undefined && <img src={imagePath + sortedImages[index]?.name} alt={sortedImages[index]?.name} className="image-index m-2 rounded " />}
                     </div>
@@ -120,7 +120,7 @@ const Index = () => {
             })
         }
 
-        <div className="index-item2">
+        <div className="index-item3">
           <Brand />
         </div>
 
