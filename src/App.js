@@ -22,6 +22,7 @@ import TextIntroIndexAdmin from './components/admin/TextIntroIndexAdmin';
 import MyCookie from './components/MyCookie';
 import ErrorPage from './components/ErrorPage';
 import RequireAuth from './components/admin/RequireAuth';
+import ScrollToTop from './util/ScrollToTop'
 import { connect } from 'react-redux'
 import { userProfileFetch, userSetId, userLogout } from '../src/Redux/actions/loginAction'
 
@@ -55,25 +56,27 @@ const App = ({authData, logout, setId, fetchProfile}) =>  {
       <Navigation authData={authData} logout={logout}  />
 
       <BrowserRouter>
-        <Routes>
-            <Route path="/" element={<Index />}/>
-            <Route path="/gallerie" element={<Gallery />}/>
-            <Route path="/gallerie/:id" element={<GalleryShow />}/>
-            <Route path="/contact" element={<Contact />}/>
-            <Route path="/login" element={<Login />}/>
+        <ScrollToTop >
+          <Routes>
+              <Route path="/" element={<Index />}/>
+              <Route path="/gallerie" element={<Gallery />}/>
+              <Route path="/gallerie/:id" element={<GalleryShow />}/>
+              <Route path="/contact" element={<Contact />}/>
+              <Route path="/login" element={<Login />}/>
 
-            {/* protected routes */}
-            <Route element={<RequireAuth />} >
-              <Route path="/admin_text_intro_new" element={<TextIntroNewAdmin />}/>
-              <Route path="/admin_text_intro_index" element={<TextIntroIndexAdmin />}/>
-              <Route path="/admin_gallery_new" element={<GalleryNewAdmin />}/>
-              <Route path="/admin_gallery_index" element={<GalleryIndexAdmin />}/>
-              <Route path="/admin_gallery_edit/:id" element={<GalleryEditAdmin />}/>
-            </Route>
+              {/* protected routes */}
+              <Route element={<RequireAuth />} >
+                <Route path="/admin_text_intro_new" element={<TextIntroNewAdmin />}/>
+                <Route path="/admin_text_intro_index" element={<TextIntroIndexAdmin />}/>
+                <Route path="/admin_gallery_new" element={<GalleryNewAdmin />}/>
+                <Route path="/admin_gallery_index" element={<GalleryIndexAdmin />}/>
+                <Route path="/admin_gallery_edit/:id" element={<GalleryEditAdmin />}/>
+              </Route>
 
-            <Route path="*" element={<ErrorPage />} />
+              <Route path="*" element={<ErrorPage />} />
 
-        </Routes>
+          </Routes>
+        </ScrollToTop>
       </BrowserRouter>
 
       <Footer />
