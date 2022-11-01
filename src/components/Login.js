@@ -31,7 +31,7 @@ const Login = ({authData, auth, closeModal}) => {
     setPassword('')
     closeModal()
     navigate('/admin_text_intro_index')
-    notify(`Welcome back ${authData.userData.username} `)
+    notify(`Welcome back ${authData.userData.username} `, 'login')
   }
 
 

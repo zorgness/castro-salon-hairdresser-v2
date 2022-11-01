@@ -125,7 +125,7 @@ const GalleryEditAdmin = () => {
  const handleSubmit = async (e) => {
   e.preventDefault();
   if (selectedFiles.length > 3) {
-      setError('5 images maximum')
+      setError('3 images maximum')
       return
   }
 
@@ -170,7 +170,10 @@ const GalleryEditAdmin = () => {
     // }
 
 
-    localStorage.clear();
+    localStorage.removeItem(`infoStorageGalleryAdmin${params.id}`)
+    localStorage.removeItem(`imageStorageGalleryAdmin${params.id}`)
+    localStorage.removeItem('infoStorageGallery')
+    localStorage.removeItem('imageStorageGallery')
     navigate('/admin_gallery_index');
   }
 }

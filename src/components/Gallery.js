@@ -18,14 +18,12 @@ const Gallery = () => {
 
   useEffect(() => {
 
-    console.log('gallery mount')
-
     if (localStorage.getItem('storageDateIndex')) {
       const date = localStorage.getItem('storageDateIndex');
       checkDataAgeToCleanLocaleStorage (date);
      }
 
-     // to slow  if is inside function getInfo
+     // too slow  if is inside function getInfo
   const isInLocaleStorage = localStorage.hasOwnProperty('infoStorageGallery')
   const getInfos = async () => {
 
@@ -41,11 +39,8 @@ const Gallery = () => {
 
     } else {
 
-      console.log('api')
-
       const fetchedData = await fetchData(urlBlogPosts );
       setInfos(fetchedData);
-
 
       const tmpImageStorage = []
 
@@ -110,12 +105,6 @@ const Gallery = () => {
                       <h2 className='pattaya text-secondary text-end' style={{fontSize: "24px"}}>{title}</h2>
                       {sortedImages[index] !== undefined && <img src={imagePath + sortedImages[index]?.name} alt={sortedImages[index]?.name} className="avatar-super-large"  />}
                     </div>
-
-
-                    {/* {sortedImages[index] !== undefined &&     <div className="card-category" style={{ backgroundImage: `url(${imagePath + sortedImages[index]?.name})` }}>
-                        <h3>{title}</h3>
-                    </div>} */}
-
 
                     </Link>
                     )

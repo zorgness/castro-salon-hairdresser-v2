@@ -67,11 +67,10 @@ const TextIntroNewAdmin = () => {
       const fetchedData = await fetchDataWithMethod(urlCoverImage, 'POST', { name: transformFileName(selectedFiles)})
 
       const options = {title: title, text: text, image: fetchedData['@id']};
-      const postTextIntro = await fetchDataWithMethod(urlTextIntros, 'POST', options);
+      await fetchDataWithMethod(urlTextIntros, 'POST', options);
 
-      console.log(postTextIntro)
-
-      localStorage.clear();
+      localStorage.removeItem('info');
+      localStorage.removeItem('imageStorageIndex');
       navigate('/');
     }
   }

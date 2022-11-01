@@ -1,9 +1,6 @@
-
 import { fetchDataWithMethod } from "../../Api/FetchDataWithMethod";
 
 const urlMain = process.env.REACT_APP_URL_MAIN
-
-
 
 export const galleryDestroy = async (idBlogPost) => {
 

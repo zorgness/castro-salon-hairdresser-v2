@@ -76,7 +76,8 @@ const GalleryNewAdmin = () => {
         fetchDataWithMethod(urlProductImage, 'POST', {post: fetchedData['@id'], name: transformFileName(selectedFiles[i])})
       };
 
-      localStorage.clear();
+      localStorage.removeItem('infoStorageGallery')
+      localStorage.removeItem('imageStorageGallery')
       navigate('/admin_gallery_index');
     }
   }
@@ -112,7 +113,7 @@ const GalleryNewAdmin = () => {
           </Form.Group>
 
           <Form.Group controlId="formFileMultiple" className="mb-3">
-            <Form.Label>Multiple images</Form.Label>
+            <Form.Label>Images: 3 maximum et minimum</Form.Label>
             <Form.Control type="file" multiple onChange={(e) => handleCompressedUpload(e)} />
           </Form.Group>
 

@@ -109,7 +109,10 @@ const GalleryIndexAdmin = () => {
 
     }
 
-    localStorage.clear()
+    localStorage.removeItem('infoStorageGallery');
+    localStorage.removeItem('imageStorageGallery');
+    localStorage.removeItem(`infoStorageGallery${id}`);
+    localStorage.removeItem(`imageStorageGallery${id}`);
     navigate('/gallerie')
   }
 

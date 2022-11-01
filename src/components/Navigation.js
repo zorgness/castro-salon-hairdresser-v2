@@ -8,11 +8,10 @@ import { notify } from './admin/notify'
 import { ToastContainer } from 'react-toastify';
 
 
-
 const Navigation = ({authData, logout}) => {
 
   const handleLogout = () => {
-    notify(`Bye bye ${authData.userData.username}`)
+    notify(`Bye bye ${authData.userData.username}`, 'logout')
     logout()
   };
 
@@ -26,12 +25,12 @@ const Navigation = ({authData, logout}) => {
        className={ !authData.isAuthenticated && "border border-bottom-dark"}
        >
         <Container>
-          <Navbar.Brand href="/">
+          <Navbar.Brand href="/" >
             <img src={Logo} alt="logo" className='avatar-large'/>
           </Navbar.Brand>
-          <Navbar.Toggle aria-controls="responsive-navbar-nav">
-            <img src={Hamburger} alt="hamburger-nav" className="avatar-small" />
-          </Navbar.Toggle>
+          { !authData.isAuthenticated ? <Navbar.Toggle aria-controls="responsive-navbar-nav">
+            <img src={Hamburger}  alt="hamburger-nav" className="avatar-small" />
+          </Navbar.Toggle> : <Navbar.Toggle aria-controls="navbarScroll" /> }
           </Container>
 
           <Container className="mx-5">

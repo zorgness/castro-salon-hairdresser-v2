@@ -103,7 +103,9 @@ const TextIntroIndex = () => {
    fileName.then(data => {
     deleteImageFromS3(data.name);
    })
-   localStorage.clear()
+
+   localStorage.removeItem('info');
+   localStorage.removeItem('imageStorageIndex');
    navigate('/')
   }
 
