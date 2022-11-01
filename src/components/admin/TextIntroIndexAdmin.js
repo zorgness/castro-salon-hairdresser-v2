@@ -82,9 +82,6 @@ const TextIntroIndex = () => {
   }, [load, urlTextIntros, urlMain ]);
 
 
-
-
-
   // to sort images by id
   const sortedImages = nameImages?.sort((a,b)=> a?.id - b?.id);
 
@@ -113,8 +110,6 @@ const TextIntroIndex = () => {
   return (
 
     <div className='index-item'>
-
-
 
       <div className='pattaya text-center text-decoration-underline' style={{fontSize: '48px'}}>Intro Index</div>
 
@@ -153,12 +148,9 @@ const TextIntroIndex = () => {
                     <p>{text}</p>
                   </div>
 
-
-
                   <div className="text-center">
                     <Button  variant="danger" onClick={() => handleShow(id)}>Supprimer</Button>
                   </div>
-
 
               </Fragment>
 

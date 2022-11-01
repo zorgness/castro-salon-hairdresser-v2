@@ -22,7 +22,6 @@ const TextIntroNewAdmin = () => {
   const urlTextIntros = `${urlMain}/api/text_intros`;
   const urlCoverImage = `${urlMain}/api/cover_images`;
 
-
   const handleTitle = (e) => {
     setTitle(e.target.value);
     setError('');
@@ -39,8 +38,6 @@ const TextIntroNewAdmin = () => {
   setError('');
   setSuccess('');
   const image = e.target.files[0];
-
-
 
     const quality = image.size > 9000 ? 0.1 : 0.8;
 
