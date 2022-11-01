@@ -46,7 +46,7 @@ const Brand = () => {
 
           return (
 
-              <div  key={id} className='cards-category' style={{ backgroundImage: `url(${image})`}}></div>
+             <a href={link} key={id}><div className='cards-category' name={name} style={{ backgroundImage: `url(${image})`}}></div></a>
 
           )
         })
@@ -68,11 +68,13 @@ const Brand = () => {
                     return (
 
                       <Carousel.Item interval={5000} key={(id * 2).toString()}>
+                        <a href={link}>
                         <img
                           className="d-block w-100"
                           src={image}
-                          alt="First slide"
+                          alt={name}
                         />
+                        </a>
 
                       </Carousel.Item>
 
