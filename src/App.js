@@ -19,6 +19,7 @@ import GalleryIndexAdmin from './components/admin/GalleryIndexAdmin';
 import GalleryEditAdmin from './components/admin/GalleryEditAdmin';
 import TextIntroNewAdmin from './components/admin/TextIntroNewAdmin';
 import TextIntroIndexAdmin from './components/admin/TextIntroIndexAdmin';
+import MyCookie from './components/MyCookie';
 import ErrorPage from './components/ErrorPage';
 import RequireAuth from './components/admin/RequireAuth';
 import { connect } from 'react-redux'
@@ -26,6 +27,7 @@ import { userProfileFetch, userSetId, userLogout } from '../src/Redux/actions/lo
 
 
 const App = ({authData, logout, setId, fetchProfile}) =>  {
+
 
   const userId = window.localStorage.getItem('userId');
 
@@ -47,6 +49,8 @@ const App = ({authData, logout, setId, fetchProfile}) =>  {
 
   return (
     <div className="App">
+
+      <MyCookie />
 
       <Navigation authData={authData} logout={logout}  />
 
