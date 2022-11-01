@@ -9,7 +9,7 @@ import { userLoginAttempt, closeModal} from '../Redux/actions/loginAction';
 
 const Login = ({authData, auth, closeModal}) => {
 
-  // const [user, setUser] = useState({});
+
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   let navigate = useNavigate();

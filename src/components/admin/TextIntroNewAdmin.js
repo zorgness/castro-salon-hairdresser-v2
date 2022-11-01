@@ -82,7 +82,7 @@ const TextIntroNewAdmin = () => {
      <Fragment>
 
         <div className='m-3'>
-          <h1 className='pattaya text-center text-decoration-underline'>Text Intro New</h1>
+          <h1 className='pattaya text-center text-decoration-underline' style={{fontSize: '48px'}}>Text Intro New</h1>
         </div>
 
         <div className='text-danger text-right'>
@@ -108,11 +108,13 @@ const TextIntroNewAdmin = () => {
           <Form.Group controlId="formFileMultiple" className="mb-3">
             <Form.Label>Image</Form.Label>
             <Form.Control type="file" onChange={(e) => handleCompressedUpload(e)} />
-        </Form.Group>``
+          </Form.Group>``
 
-          <Button style={{backgroundColor: 'hotpink', border: '1px solid hotpink'}} type="submit">
-            Submit
-          </Button>
+          <Form.Group className="text-center">
+            <Button style={{backgroundColor: 'hotpink', border: '1px solid hotpink'}}  type="submit">
+              Submit
+            </Button>
+          </Form.Group>
 
         </Form>
       </Container>

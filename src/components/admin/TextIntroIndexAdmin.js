@@ -6,6 +6,7 @@ import Button from 'react-bootstrap/Button';
 import Popup from './PopUp';
 import { deleteImageFromS3 } from "../../S3/S3";
 import { textIntroDestroy } from './adminDestroy';
+import { Link } from "react-router-dom";
 
 const TextIntroIndex = () => {
 
@@ -115,7 +116,7 @@ const TextIntroIndex = () => {
 
       <div className='pattaya text-center text-decoration-underline' style={{fontSize: '48px'}}>Intro Index</div>
 
-    {
+        {
            show &&
              <Popup
               show={show}
@@ -125,6 +126,15 @@ const TextIntroIndex = () => {
               setShow={setShow}
              />
         }
+
+        <div className="text-end m-5">
+            <Link to={'/admin_text_intro_new'}
+             className="btn btn-primary"
+             style={{backgroundColor: ' #670BFF', border: '1px solid  #670BFF'}}
+             >
+              Nouveau
+             </Link>
+        </div>
 
 
       {
@@ -140,6 +150,8 @@ const TextIntroIndex = () => {
                     {sortedImages[index] !== undefined && <img src={imagePath + sortedImages[index]?.name} alt={sortedImages[index]?.name} className="avatar-super-large m-3" />}
                     <p>{text}</p>
                   </div>
+
+
 
                   <div className="text-center">
                     <Button  variant="danger" onClick={() => handleShow(id)}>Supprimer</Button>

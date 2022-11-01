@@ -131,6 +131,15 @@ const GalleryIndexAdmin = () => {
              />
         }
 
+        <div className="text-end m-5">
+            <Link to={'/admin_gallery_new'}
+             className="btn btn-primary"
+             style={{backgroundColor: ' #670BFF', border: '1px solid  #670BFF'}}
+             >
+             Nouveau
+             </Link>
+        </div>
+
         {
 
         infos?.['hydra:member']?.map(({id, title} , index )=> {

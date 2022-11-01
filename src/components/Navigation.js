@@ -30,16 +30,16 @@ console.log(authData);
 
             <Navbar.Collapse id="responsive-navbar-nav"  >
               <Nav className="pattaya text-center" >
-                <Nav.Link href="/" className='mx-5'>{authData?.userData?.username}</Nav.Link>
+                {/* <Nav.Link href="/" className='mx-5'>{authData?.userData?.username}</Nav.Link> */}
                 <Nav.Link href="/" className='mx-5'>Acceuil</Nav.Link>
                 <Nav.Link href="/gallerie" className='mx-5'>Gallerie</Nav.Link>
                 <Nav.Link href="/contact" className='mx-5'>Contact</Nav.Link>
                 {
                   authData.isAuthenticated && (
                     <>
-                      <Nav.Link href="/admin_text_intro_index" className='mx-5'>AdminIntro</Nav.Link>
-                      <Nav.Link href="/admin_gallery_index" className='mx-5'>AdminGallery</Nav.Link>
-                      <Nav.Link onClick={handleLogout} className='mx-5'>Logout</Nav.Link>
+                      <Nav.Link href="/admin_text_intro_index" className='mx-5 text-success'>AdminIntro</Nav.Link>
+                      <Nav.Link href="/admin_gallery_index" className='mx-5 text-warning'>AdminGallery</Nav.Link>
+                      <Nav.Link onClick={handleLogout} className='mx-5 text-dark'>Logout</Nav.Link>
                     </>
                   )
                 }
