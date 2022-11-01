@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Navigation from './components/Navigation';
@@ -19,15 +19,37 @@ import GalleryEditAdmin from './components/admin/GalleryEditAdmin';
 import TextIntroNewAdmin from './components/admin/TextIntroNewAdmin';
 import TextIntroIndexAdmin from './components/admin/TextIntroIndexAdmin';
 import RequireAuth from './components/admin/RequireAuth';
+import { connect } from 'react-redux'
+import { userProfileFetch, userSetId, userLogout } from '../src/Redux/actions/loginAction'
 
 
-const App = () =>  {
+const App = ({authData, logout, setId, fetchProfile}) =>  {
+
+  // const token = window.localStorage.getItem('jwtToken');
+  const userId = window.localStorage.getItem('userId');
+
+  // localStorage.clear();
+
+  useEffect(() => {
+
+    if (userId) {
+      setId(userId);
+    }
+  }, [userId, setId])
+
+  useEffect(() => {
+    if(userId) {
+      fetchProfile(userId)
+    }
+
+  }, [userId, fetchProfile]);
+
 
 
   return (
     <div className="App">
 
-      <Navigation />
+      <Navigation authData={authData} logout={logout}  />
 
       <BrowserRouter>
         <Routes>
@@ -36,6 +58,8 @@ const App = () =>  {
             <Route path="/gallerie/:id" element={<GalleryShow />}/>
             <Route path="/contact" element={<Contact />}/>
             <Route path="/login" element={<Login />}/>
+
+            {/* protected routes */}
             <Route element={<RequireAuth />} >
               <Route path="/admin_text_intro_new" element={<TextIntroNewAdmin />}/>
               <Route path="/admin_text_intro_index" element={<TextIntroIndexAdmin />}/>
@@ -43,6 +67,7 @@ const App = () =>  {
               <Route path="/admin_gallery_index" element={<GalleryIndexAdmin />}/>
               <Route path="/admin_gallery_edit/:id" element={<GalleryEditAdmin />}/>
             </Route>
+
         </Routes>
       </BrowserRouter>
 
@@ -54,7 +79,20 @@ const App = () =>  {
   );
 }
 
+const mapStateToProps = (state) => {
+  return {
+    authData: state.auth
+  }
+};
 
 
+const mapDispatchToProps = dispatch => {
+  return {
+    setId: userId => dispatch(userSetId(userId)),
+    fetchProfile: userId => dispatch(userProfileFetch(userId)),
+    logout: () => dispatch(userLogout())
+  }
+};
 
-export default App;
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

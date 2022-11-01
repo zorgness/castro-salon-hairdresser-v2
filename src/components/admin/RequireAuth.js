@@ -1,10 +1,8 @@
 import {useLocation, Navigate, Outlet} from 'react-router-dom'
 
-
 const RequireAuth = () => {
 
   const token = localStorage.getItem('jwtToken')
-  console.log(token)
   const location = useLocation()
 
   return (
