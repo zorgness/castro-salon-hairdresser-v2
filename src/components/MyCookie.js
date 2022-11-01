@@ -1,9 +1,8 @@
 import React from 'react'
-import CookieConsent,{ resetCookieConsentValue }  from "react-cookie-consent";
+import CookieConsent from "react-cookie-consent";
 
 const MyCookie = () => {
 
-  // resetCookieConsentValue(`castr_cookie`)
 
   return (
     <CookieConsent
@@ -17,13 +16,7 @@ const MyCookie = () => {
       declineButtonStyle={{ background: "black" ,color: "white", fontSize: "13px" }}
       cookieValue={true}
       declineCookieValue={false}
-      expires={10}
-      // onAccept={() => {
-      //   alert(`consent given. \n\n`);
-      // }}
-      // onDecline={() => {
-      //     alert("nay!");
-      //   }}
+      expires={150}
       >
       Nous utilisons nos cookies pour personnaliser le contenu et pour analyser notre trafic.
 
