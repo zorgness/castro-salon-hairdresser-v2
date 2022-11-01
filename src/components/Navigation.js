@@ -22,10 +22,12 @@ const Navigation = ({authData, logout}) => {
   // localStorage.clear()
   // sessionStorage.clear()
 
+  const userId = localStorage.getItem('userId');
+  const isAuthenticated = localStorage.getItem('authenticated');
+
   useEffect(() => {
 
-    const userId = localStorage.getItem('userId');
-    const isAuthenticated = localStorage.getItem('authenticated');
+
 
 
     if (load) {
@@ -71,6 +73,8 @@ const Navigation = ({authData, logout}) => {
     sessionStorage.clear()
 
   };
+
+  console.log(authData.isAuthenticated)
 
 
 
