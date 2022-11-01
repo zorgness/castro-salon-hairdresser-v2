@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import "react-toastify/dist/ReactToastify.css";
 import Navigation from './components/Navigation';
 import Footer from './components/Footer'
 import Index from './components/Index';
@@ -18,6 +19,7 @@ import GalleryIndexAdmin from './components/admin/GalleryIndexAdmin';
 import GalleryEditAdmin from './components/admin/GalleryEditAdmin';
 import TextIntroNewAdmin from './components/admin/TextIntroNewAdmin';
 import TextIntroIndexAdmin from './components/admin/TextIntroIndexAdmin';
+import ErrorPage from './components/ErrorPage';
 import RequireAuth from './components/admin/RequireAuth';
 import { connect } from 'react-redux'
 import { userProfileFetch, userSetId, userLogout } from '../src/Redux/actions/loginAction'
@@ -25,10 +27,7 @@ import { userProfileFetch, userSetId, userLogout } from '../src/Redux/actions/lo
 
 const App = ({authData, logout, setId, fetchProfile}) =>  {
 
-  // const token = window.localStorage.getItem('jwtToken');
   const userId = window.localStorage.getItem('userId');
-
-  // localStorage.clear();
 
   useEffect(() => {
 
@@ -67,6 +66,8 @@ const App = ({authData, logout, setId, fetchProfile}) =>  {
               <Route path="/admin_gallery_index" element={<GalleryIndexAdmin />}/>
               <Route path="/admin_gallery_edit/:id" element={<GalleryEditAdmin />}/>
             </Route>
+
+            <Route path="*" element={<ErrorPage />} />
 
         </Routes>
       </BrowserRouter>

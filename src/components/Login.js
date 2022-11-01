@@ -6,6 +6,7 @@ import Form from 'react-bootstrap/Form';
 import Container from 'react-bootstrap/Container';
 import MyVerticallyCenteredModal from './Modal';
 import { userLoginAttempt, closeModal} from '../Redux/actions/loginAction';
+import { notify } from './admin/notify'
 
 const Login = ({authData, auth, closeModal}) => {
 
@@ -30,19 +31,20 @@ const Login = ({authData, auth, closeModal}) => {
     setPassword('')
     closeModal()
     navigate('/admin_text_intro_index')
+    notify(`Welcome back ${authData.userData.username} `)
   }
 
 
   return (
 
-    <Fragment>
+    <div className="index-item">
 
       <MyVerticallyCenteredModal
               show={authData.modal}
               onHide={() => handleCloseModal()}
             />
 
-    <Container>
+    <Container className='mt-5'>
 
         {
           authData?.error && <p className='text-white position-absolute bg-dark'>{authData?.error}</p>
@@ -51,7 +53,7 @@ const Login = ({authData, auth, closeModal}) => {
         <Form onSubmit={handleSubmit}>
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Email address</Form.Label>
-          <Form.Control type="email" placeholder="Enter email" onChange={handleEmail}/>
+          <Form.Control type="email" placeholder="Enter email" autoComplete='false' onChange={handleEmail}/>
           <Form.Text className="text-muted">
             We'll never share your email with anyone else.
           </Form.Text>
@@ -61,16 +63,18 @@ const Login = ({authData, auth, closeModal}) => {
           <Form.Label>Password</Form.Label>
           <Form.Control type="password" placeholder="Password" autoComplete='false' onChange={handlePassword} />
         </Form.Group>
-        <Form.Group className="mb-3" controlId="formBasicCheckbox">
-          <Form.Check type="checkbox" label="Check me out" />
+
+
+        <Form.Group className="text-center">
+            <Button style={{backgroundColor: 'hotpink', border: '1px solid hotpink'}}  type="submit">
+              Submit
+            </Button>
         </Form.Group>
-        <Button style={{backgroundColor: 'hotpink', border: '1px solid hotpink'}} type="submit">
-          Submit
-        </Button>
+
       </Form>
     </Container>
 
-    </Fragment>
+    </div>
   )
 }
 
