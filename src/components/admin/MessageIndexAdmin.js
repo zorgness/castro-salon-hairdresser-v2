@@ -1,15 +1,19 @@
 import React, { useState, useEffect} from 'react'
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
+import Popup from './PopUp';
 import { fetchData } from '../../Api/FecthData'
+import { messageDestroy } from './adminDestroy'
 
 const MessageIndexAdmin = () => {
 
   const urlMain = process.env.REACT_APP_URL_MAIN
   const urlContact = `${urlMain}/api/messages`
 
-  const [messages, setMessages] = useState([])
-  const [load, setLoad] = useState(true)
+  const [messages, setMessages] = useState([]);
+  const [load, setLoad] = useState(true);
+  const [show, setShow] = useState(false);
+  const [idMessage, setIdMessage] = useState(null);
 
   useEffect(() =>{
 
@@ -36,9 +40,37 @@ const MessageIndexAdmin = () => {
     return formatedDate.toLocaleDateString()
   }
 
+  const handleClose = () => setShow(false);
+
+  const handleShow = (id) =>{
+    setShow(true);
+    setIdMessage(id)
+  }
+
+  const handleDelete = (id) => {
+    messageDestroy(id)
+    setMessages(messages.filter(message => message.id !== id))
+    handleClose()
+  }
+
 
   return (
     <div className="index-item1">
+
+        <div className='m-3'>
+          <h1 className='pattaya text-center text-decoration-underline' style={{fontSize: '48px'}}>Messages</h1>
+        </div>
+
+        {
+           show &&
+             <Popup
+              show={show}
+              idItem={idMessage}
+              handleClose={handleClose}
+              handleDelete={handleDelete}
+              setShow={setShow}
+             />
+        }
 
       <div className='d-flex justify-content-around flex-wrap gap-4 m-5'>
         {
@@ -54,7 +86,7 @@ const MessageIndexAdmin = () => {
                   </Card.Text>
                   <Card.Text className='text-end'>{dateFormater(created_at)}</Card.Text>
                 </Card.Body>
-                <Button variant="danger">Supprimer</Button>
+                <Button variant="danger" onClick={() => handleShow(id)}>Supprimer</Button>
               </Card>
             )
           })

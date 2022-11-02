@@ -2,6 +2,7 @@ import React from 'react';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
+import NavDropdown from 'react-bootstrap/NavDropdown';
 import Hamburger from '../images/hamburger.png'
 import Logo from '../images/logo.jpg'
 import { notify } from './admin/notify'
@@ -44,10 +45,13 @@ const Navigation = ({authData, logout}) => {
                 {
                   authData.isAuthenticated && (
                     <>
-                      <Nav.Link href="/admin_text_intro_index" className='mx-5 text-white'>AdminIntro</Nav.Link>
-                      <Nav.Link href="/admin_gallery_index" className='mx-5 text-white'>AdminGallery</Nav.Link>
-                      <Nav.Link href="/admin_message_index" className='mx-5 text-white'>Messages</Nav.Link>
-                      <Nav.Link onClick={handleLogout} className='mx-5 text-white'>Logout</Nav.Link>
+                      <NavDropdown title="Admin" id="collasible-nav-dropdown" >
+                          <NavDropdown.Item  href="/admin_text_intro_index" className='mb-2 '>AdminIntro</NavDropdown.Item>
+                          <NavDropdown.Item  href="/admin_gallery_index" className='mb-2 '>AdminGallery</NavDropdown.Item>
+                          <NavDropdown.Item  href="/admin_message_index" className='mb-2 '>Messages</NavDropdown.Item>
+                            <NavDropdown.Divider />
+                          <NavDropdown.Item  onClick={handleLogout} className='mb-2 '>Logout</NavDropdown.Item>
+                      </NavDropdown>
                     </>
                   )
                 }

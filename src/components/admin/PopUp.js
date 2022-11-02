@@ -1,7 +1,7 @@
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 
-const Popup = ({show, idBlogPost, handleClose, handleDelete}) => {
+const Popup = ({show, idItem, handleClose, handleDelete}) => {
   return (
 
           <div>
@@ -18,7 +18,7 @@ const Popup = ({show, idBlogPost, handleClose, handleDelete}) => {
                 <Button variant="secondary" onClick={handleClose} >
                   Close
                 </Button>
-                <Button variant="danger" onClick={() => handleDelete(idBlogPost)}>
+                <Button variant="danger" onClick={() => handleDelete(idItem)}>
                   Delete
                 </Button>
               </Modal.Footer>

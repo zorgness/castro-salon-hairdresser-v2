@@ -23,3 +23,14 @@ export const textIntroDestroy = async (idTextIntro) => {
 
   return fetchedData
 }
+
+export const messageDestroy = async (idMessage) => {
+
+  const urlMessage = `${urlMain}/api/messages/${idMessage}`;
+
+  const options = {};
+
+  const fetchedData = await fetchDataWithMethod(urlMessage, 'DELETE', options);
+
+  return fetchedData
+}

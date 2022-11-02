@@ -127,7 +127,7 @@ const GalleryIndexAdmin = () => {
            show &&
              <Popup
               show={show}
-              idBlogPost={idBlogPost}
+              idItem={idBlogPost}
               handleClose={handleClose}
               handleDelete={handleDelete}
               setShow={setShow}
