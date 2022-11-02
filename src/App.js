@@ -19,6 +19,7 @@ import GalleryIndexAdmin from './components/admin/GalleryIndexAdmin';
 import GalleryEditAdmin from './components/admin/GalleryEditAdmin';
 import TextIntroNewAdmin from './components/admin/TextIntroNewAdmin';
 import TextIntroIndexAdmin from './components/admin/TextIntroIndexAdmin';
+import MessageIndexAdmin from './components/admin/MessageIndexAdmin';
 import MyCookie from './components/MyCookie';
 import ErrorPage from './components/ErrorPage';
 import RequireAuth from './components/admin/RequireAuth';
@@ -71,6 +72,7 @@ const App = ({authData, logout, setId, fetchProfile}) =>  {
                 <Route path="/admin_gallery_new" element={<GalleryNewAdmin />}/>
                 <Route path="/admin_gallery_index" element={<GalleryIndexAdmin />}/>
                 <Route path="/admin_gallery_edit/:id" element={<GalleryEditAdmin />}/>
+                <Route path="/admin_message_index" element={<MessageIndexAdmin />}/>
               </Route>
 
               <Route path="*" element={<ErrorPage />} />

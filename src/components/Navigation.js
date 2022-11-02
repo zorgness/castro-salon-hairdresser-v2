@@ -46,6 +46,7 @@ const Navigation = ({authData, logout}) => {
                     <>
                       <Nav.Link href="/admin_text_intro_index" className='mx-5 text-white'>AdminIntro</Nav.Link>
                       <Nav.Link href="/admin_gallery_index" className='mx-5 text-white'>AdminGallery</Nav.Link>
+                      <Nav.Link href="/admin_message_index" className='mx-5 text-white'>Messages</Nav.Link>
                       <Nav.Link onClick={handleLogout} className='mx-5 text-white'>Logout</Nav.Link>
                     </>
                   )
