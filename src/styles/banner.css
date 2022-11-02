@@ -1,9 +1,9 @@
 
 .banner1 {
   background-size: cover;
-  background-position: center;
   padding: 150px 0;
   background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://i2-prod.dailyrecord.co.uk/incoming/article24752618.ece/ALTERNATES/s615/1_gettyimages-1135612912-170667a.jpg);
+  animation: animatedBackground 5s linear alternate;
 
 }
 
@@ -11,17 +11,20 @@
   background-size: cover;
   background-position: center;
   padding: 150px 0;
-  background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://i.ibb.co/TY4W68S/image-2-Large.jpg);
-
+  background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://i.ibb.co/hcGPGZd/brendan-church-t-X-WLctdhvw-unsplash.jpg);
+  animation: anim 5s linear alternate;
 }
 
 .banner3 {
   background-size: cover;
   background-position: center;
   padding: 150px 0;
-  background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://i.ibb.co/hcGPGZd/brendan-church-t-X-WLctdhvw-unsplash.jpg);
+  background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://i.ibb.co/gDqMxbc/andrea-donato-MGt5tc-Lebds-unsplash.jpg);
+  animation: anim 5s linear ;
 
 }
+
+
 
 
 .ban h1 {
@@ -39,4 +42,33 @@
   opacity: .7;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   text-align: center;
+}
+
+@keyframes animatedBackground {
+  from {
+    background-position: center;
+  }
+  to {
+    background-position: 100% 0;
+  }
+}
+
+
+
+@keyframes anim {
+  from {
+    transform: scale(1.2) translateX(0);
+  }
+  to {
+    transform: scale(1) translateX(0);
+  }
+}
+
+@keyframes anim2 {
+  from {
+    transform: scale(1) translateX(0);
+  }
+  to {
+    transform: scale(1.2) translateX(0);
+  }
 }
