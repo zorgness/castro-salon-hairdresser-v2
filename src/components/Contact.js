@@ -30,10 +30,7 @@ const Contact = () => {
       setEmail('')
       setObject('')
       setText('')
-      notify(`message envoyé ${response.email}`, 'login')
-
-    } else {
-      notify(`erreur à l'envoie`, 'login')
+      notify(`message envoyé ${response.email}`, 'message')
     }
 
   }

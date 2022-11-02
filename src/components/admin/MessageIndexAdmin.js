@@ -77,8 +77,8 @@ const MessageIndexAdmin = () => {
           messages.map(({id, email, object, text, created_at}) => {
             return (
 
-              <Card key={id} style={{ width: '18rem', border: '2px solid chocolate' }}>
-                <Card.Header>{email}</Card.Header>
+              <Card key={id} style={{ width: '18rem', border: '2px solid chocolate', borderRadius: '12px' }}>
+                <Card.Header className="text-end">{email}</Card.Header>
                 <Card.Body>
                   <Card.Title>{object}</Card.Title>
                   <Card.Text>
@@ -86,7 +86,7 @@ const MessageIndexAdmin = () => {
                   </Card.Text>
                   <Card.Text className='text-end'>{dateFormater(created_at)}</Card.Text>
                 </Card.Body>
-                <Button variant="danger" onClick={() => handleShow(id)}>Supprimer</Button>
+                <Button style={{backgroundColor: 'chocolate', border: '2px solid chocolate' }} onClick={() => handleShow(id)}>Supprimer</Button>
               </Card>
             )
           })
