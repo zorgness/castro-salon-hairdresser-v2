@@ -30,7 +30,6 @@ import { userProfileFetch, userSetId, userLogout } from '../src/Redux/actions/lo
 
 const App = ({authData, logout, setId, fetchProfile}) =>  {
 
-
   const userId = window.localStorage.getItem('userId');
 
   const adminLogin = process.env.REACT_APP_ADMIN_LOGIN_PATH

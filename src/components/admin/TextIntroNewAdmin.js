@@ -104,7 +104,7 @@ const TextIntroNewAdmin = () => {
           <Form.Group controlId="formFileMultiple" className="mb-3">
             <Form.Label>Image</Form.Label>
             <Form.Control type="file" onChange={(e) => handleCompressedUpload(e)} />
-          </Form.Group>``
+          </Form.Group>
 
           <Form.Group className="text-center">
             <Button style={{backgroundColor: 'hotpink', border: '1px solid hotpink'}}  type="submit">

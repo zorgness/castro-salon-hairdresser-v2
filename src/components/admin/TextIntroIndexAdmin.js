@@ -19,7 +19,7 @@ const TextIntroIndex = () => {
   const [infos ,setInfos] = useState([]);
   const [nameImages, setNameImages] = useState([]);
   const [show, setShow] = useState(false);
-  const [idTextIntro, setIdTextIntro] = useState(null);
+  const [idTextIntro, setIdTextIntro] = useState('');
   const [load, setLoad] = useState(true);
 
   useEffect(() => {
@@ -88,11 +88,15 @@ const TextIntroIndex = () => {
   const handleClose = () => setShow(false);
 
   const handleShow = (id) =>{
+
     setShow(true);
     setIdTextIntro(id)
   }
 
+
+
   const handleDelete = (id) => {
+
    textIntroDestroy(id);
    handleClose();
    const toDeleteFromS3 = infos['hydra:member'].filter(member => member.id === id);
@@ -117,7 +121,7 @@ const TextIntroIndex = () => {
            show &&
              <Popup
               show={show}
-              idBlogPost={idTextIntro}
+              idItem={idTextIntro}
               handleClose={handleClose}
               handleDelete={handleDelete}
               setShow={setShow}
