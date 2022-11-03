@@ -33,6 +33,8 @@ const App = ({authData, logout, setId, fetchProfile}) =>  {
 
   const userId = window.localStorage.getItem('userId');
 
+  const adminLogin = process.env.REACT_APP_ADMIN_LOGIN_PATH
+
   useEffect(() => {
 
     if (userId) {
@@ -63,7 +65,7 @@ const App = ({authData, logout, setId, fetchProfile}) =>  {
               <Route path="/gallerie" element={<Gallery />}/>
               <Route path="/gallerie/:id" element={<GalleryShow />}/>
               <Route path="/contact" element={<Contact />}/>
-              <Route path="/login" element={<Login />}/>
+              <Route path={adminLogin} element={<Login />}/>
 
               {/* protected routes */}
               <Route element={<RequireAuth />} >
