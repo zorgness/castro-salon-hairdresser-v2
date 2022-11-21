@@ -4,6 +4,7 @@ import Brand from './Brand';
 import { fetchData } from '../Api/FecthData';
 import { checkDataAgeToCleanLocaleStorage } from '../cleanStorage/CleanStorage'
 import { capitalizeFirstLetter } from '../util/capitalize';
+import MyMap from './Map';
 
 const Index = () => {
 
@@ -122,6 +123,10 @@ const Index = () => {
 
         <div className="index-item3">
           <Brand />
+        </div>
+
+        <div>
+          <MyMap />
         </div>
 
     </div>
