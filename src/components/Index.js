@@ -125,7 +125,7 @@ const Index = () => {
           <Brand />
         </div>
 
-        <div>
+        <div className='m-5' >
           <MyMap />
         </div>
 

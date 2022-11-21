@@ -206,3 +206,8 @@ section div:nth-of-type(2) {
 .show-item {
   flex: 0
 }
+
+.mapboxgl-canvas {
+  border: 6px solid brown;
+  border-radius: 10px;
+}
