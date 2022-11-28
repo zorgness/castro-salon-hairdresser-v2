@@ -1,5 +1,7 @@
 
 .banner1 {
+  border-top: 4px solid;
+  border-image: linear-gradient(45deg, white, goldenrod) 1;
   background-size: cover;
   background-position: center;
   padding: 150px 0;
@@ -9,6 +11,8 @@
 }
 
 .banner2 {
+  border-top: 4px solid;
+  border-image: linear-gradient(45deg, white, goldenrod) 1;
   background-size: cover;
   background-position: center;
   padding: 150px 0;
@@ -17,14 +21,8 @@
 }
 
 .banner3 {
-  background-size: cover;
-  background-position: center;
-  padding: 150px 0;
-  background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://i.ibb.co/gDqMxbc/andrea-donato-MGt5tc-Lebds-unsplash.jpg);
-
-}
-
-.banner3 {
+  border-top: 4px solid;
+  border-image: linear-gradient(45deg, white, goldenrod) 1;
   background-size: cover;
   background-position: center;
   padding: 150px 0;
@@ -33,6 +31,8 @@
 }
 
 .banner4 {
+  border-top: 4px solid;
+  border-image: linear-gradient(45deg, white, goldenrod) 1;
   background-size: cover;
   background-position: center;
   padding: 240px 0;
