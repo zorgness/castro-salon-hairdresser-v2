@@ -4,8 +4,6 @@ import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import { fetchDataWithMethod } from '../Api/FetchDataWithMethod';
 import { notify } from './admin/notify'
-import banner from './../images/banner.jpeg'
-
 
 const Contact = () => {
 
