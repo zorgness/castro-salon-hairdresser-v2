@@ -1,19 +1,23 @@
 export const fetchData = async (url) => {
-
+  const myHeader = new Headers({
+    "Content-Type": "application/x-www-form-urlencoded",
+  });
+  const init = {
+    method: "GET",
+    headers: myHeader,
+    mode: "cors",
+  };
   try {
+    const response = await fetch(url, init);
 
-    const response = await fetch(url);
-
-    if(!response.ok) {
+    if (!response.ok) {
       throw new Error();
     }
 
     const fetchedData = await response.json();
 
     return fetchedData;
-
   } catch (err) {
-
-    console.log(err.message);
+    return err;
   }
-}
+};
