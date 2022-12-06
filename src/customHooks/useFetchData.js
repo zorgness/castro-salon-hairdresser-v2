@@ -1,6 +1,9 @@
 import * as React from "react";
 import { dataReducer } from "./reducers/dataReducer";
-import { fetchTextIntroData } from "../Api/fetchApiData";
+import {
+  fetchTextIntroData,
+  fetchTextIntroImage,
+} from "../customHooks/actions/fetchDataAction";
 
 const useFetchData = () => {
   const initialState = {
@@ -28,6 +31,15 @@ export const useFindTextIntro = () => {
   React.useEffect(() => {
     execute(fetchTextIntroData());
   }, [execute]);
+
+  return { data, error, status };
+};
+
+export const useFindTextIntroImage = (imageId) => {
+  const { data, error, status, execute } = useFetchData();
+  React.useEffect(() => {
+    execute(fetchTextIntroImage(imageId));
+  }, [execute, imageId]);
 
   return { data, error, status };
 };
