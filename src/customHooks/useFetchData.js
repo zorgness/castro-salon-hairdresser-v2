@@ -1,8 +1,10 @@
 import * as React from "react";
 import { dataReducer } from "./reducers/dataReducer";
 import {
-  fetchTextIntroData,
+  fetchTextIntro,
   fetchTextIntroImage,
+  fetchGalleriesData,
+  fetchGalleryImages,
 } from "../customHooks/actions/fetchDataAction";
 
 const useFetchData = () => {
@@ -26,20 +28,39 @@ const useFetchData = () => {
   return { data, error, status, execute };
 };
 
-export const useFindTextIntro = () => {
+export const useFetchTextIntro = () => {
   const { data, error, status, execute } = useFetchData();
+
   React.useEffect(() => {
-    execute(fetchTextIntroData());
+    execute(fetchTextIntro());
   }, [execute]);
 
   return { data, error, status };
 };
 
-export const useFindTextIntroImage = (imageId) => {
+export const useFetchTextIntroImage = (imageId) => {
   const { data, error, status, execute } = useFetchData();
   React.useEffect(() => {
     execute(fetchTextIntroImage(imageId));
   }, [execute, imageId]);
+
+  return { data, error, status };
+};
+
+export const useFetchGalleries = () => {
+  const { data, error, status, execute } = useFetchData();
+  React.useEffect(() => {
+    execute(fetchGalleriesData());
+  }, [execute]);
+
+  return { data, error, status };
+};
+
+export const useFetchGalleryImages = (galleryId) => {
+  const { data, error, status, execute } = useFetchData();
+  React.useEffect(() => {
+    execute(fetchGalleryImages(galleryId));
+  }, [execute, galleryId]);
 
   return { data, error, status };
 };

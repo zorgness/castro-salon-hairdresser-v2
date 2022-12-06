@@ -1,10 +1,10 @@
 import React from "react";
 import { capitalizeFirstLetter } from "../util/capitalize";
-import { useFindTextIntroImage } from "../customHooks/useFetchData";
+import { useFetchTextIntroImage } from "../customHooks/useFetchData";
 
 const TextIntro = ({ textIntro, indexPosition }) => {
   const { id, title, text, image } = textIntro;
-  const state = useFindTextIntroImage(image);
+  const state = useFetchTextIntroImage(image);
   const { data } = state;
 
   const styleByIndex =
