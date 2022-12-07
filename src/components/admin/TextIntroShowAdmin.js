@@ -2,7 +2,7 @@ import React from "react";
 import { capitalizeFirstLetter } from "./../../util/capitalize";
 import { useFetchTextIntroImage } from "../../customHooks/useFetchData";
 
-const TextIntroShowAdmin = ({ textIntro, indexPosition }) => {
+const TextIntroShowAdmin = ({ textIntro }) => {
   const { title, text, image } = textIntro;
   const state = useFetchTextIntroImage(image);
   const { data } = state;
@@ -22,7 +22,6 @@ const TextIntroShowAdmin = ({ textIntro, indexPosition }) => {
         </h2>
         <p>{text}</p>
       </div>
-      <div className="text-center"></div>
     </div>
   );
 };
