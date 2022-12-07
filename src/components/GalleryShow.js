@@ -11,10 +11,6 @@ const GalleryShow = () => {
 
   const { data, error, status } = state;
 
-  console.log(data?.id);
-  console.log(status);
-  console.log(error);
-
   if (status === "done") {
     return (
       <div className="content-container index-item1">
@@ -28,15 +24,6 @@ const GalleryShow = () => {
         </h1>
 
         <div className="item-show-container">
-          {/* {
-              nameImages?.map(({id, name}, index) => {
-                return (
-
-                  <div className={`item-show-item${index + 1} show-item`} key={id}><img src={imagePath + name} alt={name} width={240} height={'auto'} className="rounded "   /></div>
-                )
-              })
-            } */}
-
           <GalleryImageComponent galleryId={data?.id} />
 
           <div className="item-show-container">

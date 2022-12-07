@@ -1,10 +1,16 @@
-import React, { useEffect } from "react";
-import { useFetchGalleryImages } from "../customHooks/useFetchData";
+import React from "react";
+import { useFetchGalleryImages } from "../../customHooks/useFetchData";
 
-const GalleryImageComponent = ({ galleryId }) => {
+const GalleryImageAdmin = ({ galleryId, getNameImages }) => {
   const imagePath = process.env.REACT_APP_AWS_S3_URL;
   const state = useFetchGalleryImages(galleryId);
   const { data, error, status } = state;
+
+  React.useEffect(() => {
+    data?.forEach((image) => {
+      getNameImages((prev) => [...prev, image.name]);
+    });
+  }, [data, getNameImages]);
 
   if (status === "done") {
     return (
@@ -29,4 +35,4 @@ const GalleryImageComponent = ({ galleryId }) => {
   }
 };
 
-export default GalleryImageComponent;
+export default GalleryImageAdmin;

@@ -148,7 +148,6 @@ export const fetchGalleryImages = (galleryId) => {
     return fetch(urlGallery + "/" + galleryId + "/product_images", init)
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
         if (data["hydra:member"].length > 0) {
           localStorage.setItem(
             `infoGalleryImage${galleryId}`,
