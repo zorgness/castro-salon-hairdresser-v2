@@ -82,7 +82,6 @@ export const fetchTextIntroImage = (imageId) => {
 export const fetchGalleriesData = () => {
   checkStorageDate();
   if (localStorage.getItem("infoGalleries")) {
-    console.log("storage gallery ");
     return Promise.resolve().then(function () {
       return JSON.parse(localStorage.getItem("infoGalleries"));
     });
@@ -109,10 +108,39 @@ export const fetchGalleriesData = () => {
   }
 };
 
+export const fetchGallery = (galleryId) => {
+  checkStorageDate();
+  if (localStorage.getItem(`infoGallery${galleryId}`)) {
+    return Promise.resolve().then(function () {
+      return JSON.parse(localStorage.getItem(`infoGallery${galleryId}`));
+    });
+  } else {
+    return fetch(urlGallery + "/" + galleryId, init)
+      .then((response) => response.json())
+      .then((data) => {
+        if (data) {
+          localStorage.setItem(`infoGallery${galleryId}`, JSON.stringify(data));
+          if (!localStorage.getItem("storageDateHome")) {
+            localStorage.setItem("storageDateHome", Date.now());
+          }
+          return data;
+        } else {
+          return Promise.reject(
+            new Error(`Aucune gallerie trouvé avec ${galleryId}`)
+          );
+        } // ERROR DU JSON()
+      })
+      .catch((error) => {
+        return Promise.reject(
+          new Error(`Pas de gallerie trouvé avec ${galleryId}`)
+        );
+      }); // ERROR APPEL API
+  }
+};
+
 export const fetchGalleryImages = (galleryId) => {
   checkStorageDate();
   if (localStorage.getItem(`infoGalleryImage${galleryId}`)) {
-    console.log("storage gallery ");
     return Promise.resolve().then(function () {
       return JSON.parse(localStorage.getItem(`infoGalleryImage${galleryId}`));
     });
@@ -120,6 +148,7 @@ export const fetchGalleryImages = (galleryId) => {
     return fetch(urlGallery + "/" + galleryId + "/product_images", init)
       .then((response) => response.json())
       .then((data) => {
+        console.log(data);
         if (data["hydra:member"].length > 0) {
           localStorage.setItem(
             `infoGalleryImage${galleryId}`,
@@ -130,11 +159,15 @@ export const fetchGalleryImages = (galleryId) => {
           }
           return data["hydra:member"];
         } else {
-          return Promise.reject(new Error(`Aucun Text Intro trouvé`));
+          return Promise.reject(
+            new Error(`Aucune images trouvé pour la gallery ${galleryId}`)
+          );
         } // ERROR DU JSON()
       })
       .catch((error) => {
-        return Promise.reject(new Error(`Pas de Text Intro trouvé`));
+        return Promise.reject(
+          new Error(`Pas d'images trouvé pour la gallery ${galleryId}`)
+        );
       }); // ERROR APPEL API
   }
 };

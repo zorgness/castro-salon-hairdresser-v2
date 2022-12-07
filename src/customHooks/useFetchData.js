@@ -5,6 +5,7 @@ import {
   fetchTextIntroImage,
   fetchGalleriesData,
   fetchGalleryImages,
+  fetchGallery,
 } from "../customHooks/actions/fetchDataAction";
 
 const useFetchData = () => {
@@ -52,6 +53,15 @@ export const useFetchGalleries = () => {
   React.useEffect(() => {
     execute(fetchGalleriesData());
   }, [execute]);
+
+  return { data, error, status };
+};
+
+export const useFetchGallery = (galleryId) => {
+  const { data, error, status, execute } = useFetchData();
+  React.useEffect(() => {
+    execute(fetchGallery(galleryId));
+  }, [execute, galleryId]);
 
   return { data, error, status };
 };
