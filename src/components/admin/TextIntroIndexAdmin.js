@@ -5,7 +5,7 @@ import Button from "react-bootstrap/Button";
 import Popup from "./PopUp";
 import { deleteImageFromS3 } from "../../S3/S3";
 import { textIntroDestroy } from "./adminDestroy";
-import TextIntro from "../TextIntro";
+import TextIntroShowAdmin from "./TextIntroShowAdmin";
 import { useFetchTextIntro } from "../../customHooks/useFetchData";
 import { Link } from "react-router-dom";
 
@@ -49,7 +49,7 @@ const TextIntroIndex = () => {
         className="pattaya text-center text-decoration-underline"
         style={{ fontSize: "48px" }}
       >
-        Intro Index
+        Introduction
       </div>
 
       {show && (
@@ -76,7 +76,7 @@ const TextIntroIndex = () => {
         data?.map((textIntro, index) => {
           return (
             <Fragment key={index}>
-              <TextIntro textIntro={textIntro} indexPosition={index} />
+              <TextIntroShowAdmin textIntro={textIntro} indexPosition={index} />
               <div className="text-center">
                 <Button
                   variant="danger"
@@ -89,31 +89,6 @@ const TextIntroIndex = () => {
             </Fragment>
           );
         })}
-
-      {/*
-      {status === "done"
-        ? data?.map(({ id, title, text }, index) => {
-            return (
-              <Fragment key={id}>
-                <div className="m-5 text-center">
-                  <h2
-                    className="pattaya text-black"
-                    style={{ fontSize: "24px" }}
-                  >
-                    {title}
-                  </h2>
-                  {sortedImages[index] !== undefined && <img src={imagePath + sortedImages[index]?.name} alt={sortedImages[index]?.name} className="avatar-super-large m-3" />}
-
-                  <p>{text}</p>
-                </div>
-
-                <div className="text-center">
-                  <Button  variant="danger" onClick={() => handleShow(id)}>Supprimer</Button>
-                </div>
-              </Fragment>
-            );
-          })
-        : null} */}
     </div>
   );
 };
