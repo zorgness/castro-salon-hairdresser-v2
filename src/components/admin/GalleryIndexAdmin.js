@@ -1,6 +1,5 @@
-import React, { useState, useEffect, Fragment } from "react";
+import React, { useState, Fragment } from "react";
 import { Link } from "react-router-dom";
-import { checkDataAgeToCleanLocaleStorage } from "../../cleanStorage/CleanStorage";
 import { fetchData } from "../../Api/FecthData";
 import { useNavigate } from "react-router-dom";
 import Button from "react-bootstrap/Button";
@@ -43,11 +42,10 @@ const GalleryIndexAdmin = () => {
       });
     }
 
-    localStorage.removeItem("infoStorageGallery");
-    localStorage.removeItem("imageStorageGallery");
-    localStorage.removeItem(`infoStorageGallery${id}`);
-    localStorage.removeItem(`imageStorageGallery${id}`);
-    navigate("/gallerie");
+    localStorage.removeItem("infoGalleries");
+    localStorage.removeItem(`infoGallery${id}`);
+    localStorage.removeItem(`infoGalleryImage${id}`);
+    // navigate("/gallerie");
   };
 
   return (

@@ -16,7 +16,7 @@ const TextIntroShowAdmin = ({ textIntro, indexPosition }) => {
           className="avatar-super-large m-3"
         />
       </div>
-      <div className="intro">
+      <div className="m-5">
         <h2 className="pattaya text-black" style={{ fontSize: "24px" }}>
           {capitalizeFirstLetter(title)}
         </h2>

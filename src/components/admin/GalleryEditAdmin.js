@@ -112,7 +112,6 @@ const GalleryEditAdmin = () => {
     }
   };
 
-  console.log(nameImages);
   return (
     <div className="index-item1">
       <h1
