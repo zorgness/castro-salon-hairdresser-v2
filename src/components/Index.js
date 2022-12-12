@@ -4,6 +4,7 @@ import Brand from "./Brand";
 import MyMap from "./Map";
 import { useFetchTextIntro } from "./../customHooks/useFetchData";
 import TextIntro from "./TextIntro";
+import Loader from "../components/Loader";
 
 const Index = () => {
   const state = useFetchTextIntro();
@@ -12,6 +13,8 @@ const Index = () => {
   return (
     <div className="content-container">
       <Banner />
+
+      {status === "fetching" && <Loader />}
 
       {status === "done" &&
         data?.map((textIntro, index) => {

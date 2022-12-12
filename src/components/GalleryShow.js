@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { capitalizeFirstLetter } from "../util/capitalize";
 import { useFetchGallery } from ".././customHooks/useFetchData";
 import GalleryImageComponent from "./GalleryImageComponent";
+import Loader from "../components/Loader";
 
 const GalleryShow = () => {
   const params = useParams();
@@ -10,6 +11,10 @@ const GalleryShow = () => {
   const state = useFetchGallery(params?.id);
 
   const { data, error, status } = state;
+
+  if (status === "fetching") {
+    return <Loader />;
+  }
 
   if (status === "done") {
     return (
