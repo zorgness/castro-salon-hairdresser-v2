@@ -11,7 +11,7 @@ const GalleryThumbnail = ({ galleryId }) => {
       <img
         src={imagePath + data?.[0]?.name}
         alt={""}
-        className="avatar-super-large"
+        className="avatar-super-large shadow p-1"
       />
     );
   } else {

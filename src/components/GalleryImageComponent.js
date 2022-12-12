@@ -4,20 +4,20 @@ import { useFetchGalleryImages } from "../customHooks/useFetchData";
 const GalleryImageComponent = ({ galleryId }) => {
   const imagePath = process.env.REACT_APP_AWS_S3_URL;
   const state = useFetchGalleryImages(galleryId);
-  const { data, error, status } = state;
+  const { data, status } = state;
 
   if (status === "done") {
     return (
-      <div>
+      <div className="d-flex justify-content-around flex-wrap gap-3">
         {data?.map(({ id, name }, index) => {
           return (
-            <div className={`item-show-item${index + 1} show-item`} key={id}>
+            <div key={id}>
               <img
                 src={imagePath + name}
                 alt={name}
                 width={240}
                 height={"auto"}
-                className="rounded "
+                className="rounded shadow p-1"
               />
             </div>
           );

@@ -207,3 +207,7 @@ section div:nth-of-type(2) {
   border: 6px solid var(--main-purple);
   border-radius: 10px;
 }
+
+nav {
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+}

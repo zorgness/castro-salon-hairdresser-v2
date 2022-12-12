@@ -28,14 +28,16 @@ const GalleryShow = () => {
           {capitalizeFirstLetter(data?.title ?? "")}
         </h1>
 
-        <div className="item-show-container">
-          <GalleryImageComponent galleryId={data?.id} />
-
-          <div className="item-show-container">
-            <div className="show-item">
-              <p style={{ minWidth: "240px" }}>{data?.text}</p>
-            </div>
+        <div className="d-flex justify-content-center m-4">
+          <div>
+            <p style={{ width: "320px" }} className="text-start poppins">
+              {data?.text}
+            </p>
           </div>
+        </div>
+
+        <div>
+          <GalleryImageComponent galleryId={data?.id} />
         </div>
       </div>
     );
