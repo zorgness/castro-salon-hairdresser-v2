@@ -2,6 +2,7 @@ import { checkDataAgeToCleanLocaleStorage } from "../../cleanStorage/CleanStorag
 
 const myHeader = new Headers({
   "Content-Type": "application/x-www-form-urlencoded",
+  "Access-Control-Allow-Origin": "*",
 });
 const init = {
   method: "GET",
