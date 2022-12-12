@@ -13,8 +13,8 @@
 
 .bubble1 {
   position: absolute;
-  background-color: var(--main-light--green);
-  opacity: 0.8;
+  background-color: green;
+  opacity: 0.2;
   height: 62px;
   width: 62px;
   border-radius: 50%;

@@ -8,6 +8,7 @@
 @import url("./styles/bubble.css");
 @import url("./styles/cards.css");
 @import url("./styles/map.css");
+@import url("./styles/grid-image.css");
 
 :root {
   --main-chocolate: #742f1a;
@@ -106,7 +107,7 @@ body p {
 .josefine {
   font-family: "Josefin Sans", sans-serif;
   font-weight: bolder;
-  color: var(--main-chocolate);
+  color: var(--main-light--green);
 }
 
 .navbar-hamburger {
@@ -217,7 +218,7 @@ section div:nth-of-type(2) {
 }
 
 .mapboxgl-canvas {
-  border: 6px solid var(--main-purple);
+  border: 6px solid var(--main-beige);
   border-radius: 10px;
 }
 

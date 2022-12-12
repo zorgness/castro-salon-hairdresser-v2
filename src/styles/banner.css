@@ -1,6 +1,6 @@
 .banner1 {
-  border-top: 4px solid;
-  border-image: linear-gradient(45deg, white, goldenrod) 1;
+  /* border-top: 4px solid;
+  border-image: linear-gradient(45deg, white, goldenrod) 1; */
   background-size: cover;
   background-attachment: fixed;
   background-position: center;
@@ -11,8 +11,8 @@
 }
 
 .banner2 {
-  border-top: 4px solid;
-  border-image: linear-gradient(45deg, white, goldenrod) 1;
+  /* border-top: 4px solid;
+  border-image: linear-gradient(45deg, white, goldenrod) 1; */
   background-size: cover;
   background-attachment: fixed;
   background-position: center;
@@ -23,8 +23,8 @@
 }
 
 .banner3 {
-  border-top: 4px solid;
-  border-image: linear-gradient(45deg, white, goldenrod) 1;
+  /* border-top: 4px solid;
+  border-image: linear-gradient(45deg, white, goldenrod) 1; */
   background-size: cover;
   background-attachment: fixed;
   background-position: center;

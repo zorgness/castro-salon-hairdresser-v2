@@ -20,7 +20,7 @@ const TextIntro = ({ textIntro, indexPosition }) => {
     );
 
   const text1 = "Ressortir en beauté qui vous êtes";
-  const text2 = "Célébrer l'unique femme que vous étes";
+  const text2 = "Célébrer l'unique femme que vous êtes";
 
   const textImportant =
     indexPosition % 2 === 0 ? (
