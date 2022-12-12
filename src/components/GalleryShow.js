@@ -30,7 +30,10 @@ const GalleryShow = () => {
 
         <div className="d-flex justify-content-center m-4">
           <div>
-            <p style={{ width: "320px" }} className="text-start poppins">
+            <p
+              style={{ width: "380px", fontSize: "20px" }}
+              className="text-start popins"
+            >
               {data?.text}
             </p>
           </div>

@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Fasthand&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,300&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Charm&display=swap");
 @import url("./styles/avatar.css");
 @import url("./styles/banner.css");
 @import url("./styles/bubble.css");
@@ -93,6 +94,10 @@ body p {
 
 .poppins {
   font-family: "Poppins", sans-serif;
+  font-weight: bolder;
+}
+.charm {
+  font-family: "Charm", cursive;
   font-weight: bolder;
 }
 
