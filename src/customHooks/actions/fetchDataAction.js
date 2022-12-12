@@ -7,7 +7,7 @@ const myHeader = new Headers({
 const init = {
   method: "GET",
   headers: myHeader,
-  mode: "cors",
+  // mode: "cors",
 };
 
 const urlMain = process.env.REACT_APP_URL_MAIN;
