@@ -63,15 +63,15 @@ body p {
 }
 
 .index-item1 {
-  border-top: 20px solid var(--main-brown);
+  border-top: 20px solid var(--main-purple);
 }
 
 .index-item2 {
-  border-top: 20px solid var(--main-light-grey);
+  border-top: 20px solid var(--main-brown);
 }
 
 .index-item3 {
-  border-top: 20px solid beige;
+  border-top: 20px solid var(--main-light-brown);
 }
 .image-index {
   height: 240px;
@@ -108,7 +108,7 @@ body p {
   bottom: 0;
   left: 0;
   width: 100%;
-  border-top: 20px solid rgb(175, 145, 123);
+  border-top: 20px solid var(--main-light-grey);
 }
 
 .w-100 {
@@ -156,6 +156,9 @@ body p {
 
   .bubble3 {
     margin-left: 600px;
+  }
+  .map-container {
+    height: "10px";
   }
 }
 
