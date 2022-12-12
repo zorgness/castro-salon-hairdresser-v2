@@ -4,7 +4,6 @@ import Brand from "./Brand";
 import { useFetchTextIntro } from "./../customHooks/useFetchData";
 import TextIntro from "./TextIntro";
 import Loader from "../components/Loader";
-import Map from "../components/MyMap";
 
 const Index = () => {
   const state = useFetchTextIntro();
@@ -29,10 +28,6 @@ const Index = () => {
 
       <div className="index-item3">
         <Brand />
-      </div>
-
-      <div className="m-5">
-        <Map />
       </div>
     </div>
   );
