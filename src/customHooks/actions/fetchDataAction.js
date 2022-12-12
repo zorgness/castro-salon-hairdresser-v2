@@ -29,7 +29,7 @@ export const fetchTextIntro = () => {
       return JSON.parse(localStorage.getItem("infoIndex"));
     });
   } else {
-    return fetch(urlTextIntro, init)
+    return fetch(urlTextIntro)
       .then((response) => response.json())
       .then((data) => {
         if (data["hydra:member"].length > 0) {
