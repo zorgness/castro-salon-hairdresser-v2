@@ -18,6 +18,20 @@ const TextIntro = ({ textIntro, indexPosition }) => {
     ) : (
       <div className="bubble2"></div>
     );
+
+  const text1 = "Ressortir en beauté qui vous êtes";
+  const text2 = "Célébrer l'unique femme que vous étes";
+
+  const textImportant =
+    indexPosition % 2 === 0 ? (
+      <div className={`index-item${indexPosition + 2} text-center`}>
+        <h4 className="m-3 josefine">{text1.toUpperCase()}</h4>
+      </div>
+    ) : (
+      <div className={`index-item${indexPosition + 2} text-center`}>
+        <h4 className="m-3 josefine">{text2.toUpperCase()}</h4>
+      </div>
+    );
   return (
     <div className={`index-item${indexPosition + 1}`} key={id}>
       <div className={styleByIndex}>
@@ -38,6 +52,7 @@ const TextIntro = ({ textIntro, indexPosition }) => {
           </div>
         </div>
       </div>
+      {textImportant}
     </div>
   );
 };
