@@ -1,14 +1,14 @@
 import { checkDataAgeToCleanLocaleStorage } from "../../cleanStorage/CleanStorage";
 
-const myHeader = new Headers({
-  "Content-Type": "application/x-www-form-urlencoded",
-  "Access-Control-Allow-Origin": "*",
-});
-const init = {
-  method: "GET",
-  headers: myHeader,
-  // mode: "cors",
-};
+// const myHeader = new Headers({
+//   "Content-Type": "application/x-www-form-urlencoded",
+//   "Access-Control-Allow-Origin": "*",
+// });
+// const init = {
+//   method: "GET",
+//   headers: myHeader,
+//   // mode: "cors",
+// };
 
 const urlMain = process.env.REACT_APP_URL_MAIN;
 const urlTextIntro = `${urlMain}/api/text_intros`;
@@ -58,7 +58,7 @@ export const fetchTextIntroImage = (imageId) => {
       return JSON.parse(localStorage.getItem(`infoIndexImage${imageId}`));
     });
   } else {
-    return fetch(urlMain + imageId, init)
+    return fetch(urlMain + imageId)
       .then((response) => response.json())
       .then((data) => {
         if (data.name.length > 0) {
@@ -87,7 +87,7 @@ export const fetchGalleriesData = () => {
       return JSON.parse(localStorage.getItem("infoGalleries"));
     });
   } else {
-    return fetch(urlGallery, init)
+    return fetch(urlGallery)
       .then((response) => response.json())
       .then((data) => {
         if (data["hydra:member"].length > 0) {
@@ -116,7 +116,7 @@ export const fetchGallery = (galleryId) => {
       return JSON.parse(localStorage.getItem(`infoGallery${galleryId}`));
     });
   } else {
-    return fetch(urlGallery + "/" + galleryId, init)
+    return fetch(urlGallery + "/" + galleryId)
       .then((response) => response.json())
       .then((data) => {
         if (data) {
@@ -146,7 +146,7 @@ export const fetchGalleryImages = (galleryId) => {
       return JSON.parse(localStorage.getItem(`infoGalleryImage${galleryId}`));
     });
   } else {
-    return fetch(urlGallery + "/" + galleryId + "/product_images", init)
+    return fetch(urlGallery + "/" + galleryId + "/product_images")
       .then((response) => response.json())
       .then((data) => {
         if (data["hydra:member"].length > 0) {
