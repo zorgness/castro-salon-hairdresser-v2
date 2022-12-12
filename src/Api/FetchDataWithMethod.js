@@ -1,32 +1,27 @@
 export const fetchDataWithMethod = async (url, method, options) => {
-
-
   try {
-
-    if(localStorage.getItem('jwtToken')) {
-      options.Authorization = 'Bearer ' + localStorage.getItem('jwt');
+    if (localStorage.getItem("jwtToken")) {
+      options.Authorization = "Bearer " + localStorage.getItem("jwt");
     }
 
     const response = await fetch(url, {
       method: method,
       headers: {
-        'Content-Type': 'application/json'
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*",
       },
-      body: JSON.stringify(options)
+      body: JSON.stringify(options),
     });
 
-    if(!response.ok) {
-      throw new Error('Could not fetch data from ' + url);
+    if (!response.ok) {
+      throw new Error("Could not fetch data from " + url);
     }
 
-    if( method !== 'DELETE') {
+    if (method !== "DELETE") {
       const fetchedData = await response.json();
 
-      return fetchedData
-
+      return fetchedData;
     }
-
-
   } catch (err) {
     console.error(err.message);
   }

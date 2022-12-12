@@ -1,6 +1,7 @@
 export const fetchData = async (url) => {
   const myHeader = new Headers({
     "Content-Type": "application/x-www-form-urlencoded",
+    "Access-Control-Allow-Origin": "*",
   });
   const init = {
     method: "GET",
