@@ -10,7 +10,7 @@ const GalleryShow = () => {
 
   const state = useFetchGallery(params?.id);
 
-  const { data, error, status } = state;
+  const { data, status } = state;
 
   if (status === "fetching") {
     return <Loader />;

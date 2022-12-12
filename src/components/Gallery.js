@@ -7,7 +7,7 @@ import Loader from "./Loader";
 
 const Gallery = () => {
   const state = useFetchGalleries();
-  const { data, error, status } = state;
+  const { data, status } = state;
 
   return (
     <div className="content-container">

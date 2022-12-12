@@ -12,7 +12,7 @@ import GalleryThumbnail from "../GalleryThumbnail";
 
 const GalleryIndexAdmin = () => {
   const state = useFetchGalleries();
-  const { data, error, status } = state;
+  const { data, status } = state;
 
   const urlMain = process.env.REACT_APP_URL_MAIN;
 

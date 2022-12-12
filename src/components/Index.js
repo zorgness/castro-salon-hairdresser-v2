@@ -1,7 +1,6 @@
 import React from "react";
 import Banner from "./Banner";
 import Brand from "./Brand";
-import MyMap from "./Map";
 import { useFetchTextIntro } from "./../customHooks/useFetchData";
 import TextIntro from "./TextIntro";
 import Loader from "../components/Loader";

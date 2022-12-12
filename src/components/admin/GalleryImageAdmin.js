@@ -4,7 +4,7 @@ import { useFetchGalleryImages } from "../../customHooks/useFetchData";
 const GalleryImageAdmin = ({ galleryId, getNameImages }) => {
   const imagePath = process.env.REACT_APP_AWS_S3_URL;
   const state = useFetchGalleryImages(galleryId);
-  const { data, error, status } = state;
+  const { data, status } = state;
 
   React.useEffect(() => {
     data?.forEach((image) => {
