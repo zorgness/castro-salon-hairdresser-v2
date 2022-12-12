@@ -6,10 +6,9 @@ export const fetchDataWithMethod = async (url, method, options) => {
 
     const response = await fetch(url, {
       method: method,
-      // headers: {
-      //   "Content-Type": "application/json",
-      //   "Access-Control-Allow-Origin": "*",
-      // },
+      headers: {
+        "Content-Type": "application/json",
+      },
       body: JSON.stringify(options),
     });
 
