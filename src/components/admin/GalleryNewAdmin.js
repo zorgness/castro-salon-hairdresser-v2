@@ -78,7 +78,7 @@ const GalleryNewAdmin = () => {
       for (let i = 0; i < selectedFiles.length; i++) {
         uploadImageBlob(selectedFiles[i]);
         fetchDataWithMethod(urlProductImage, "POST", {
-          post: fetchedData["@id"],
+          post: fetchedData?.["@id"],
           name: transformFileName(selectedFiles[i]),
         });
       }

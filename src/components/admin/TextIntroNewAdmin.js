@@ -63,7 +63,7 @@ const TextIntroNewAdmin = () => {
         name: transformFileName(selectedFiles),
       });
 
-      const options = { title: title, text: text, image: fetchedData["@id"] };
+      const options = { title: title, text: text, image: fetchedData?.["@id"] };
       await fetchDataWithMethod(urlTextIntros, "POST", options);
 
       localStorage.removeItem("infoIndex");
