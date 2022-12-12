@@ -6,6 +6,7 @@
 @import url("./styles/banner.css");
 @import url("./styles/bubble.css");
 @import url("./styles/cards.css");
+@import url("./styles/map.css");
 
 :root {
   --main-chocolate: #742f1a;
