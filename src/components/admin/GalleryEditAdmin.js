@@ -120,6 +120,7 @@ const GalleryEditAdmin = () => {
       >
         Gallery Edition
       </h1>
+
       {status === "done" ? (
         <GalleryImageAdmin galleryId={data?.id} getNameImages={setNameImages} />
       ) : null}

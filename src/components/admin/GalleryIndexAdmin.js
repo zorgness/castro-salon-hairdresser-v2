@@ -45,7 +45,7 @@ const GalleryIndexAdmin = () => {
     localStorage.removeItem("infoGalleries");
     localStorage.removeItem(`infoGallery${id}`);
     localStorage.removeItem(`infoGalleryImage${id}`);
-    // navigate("/gallerie");
+    navigate("/gallerie");
   };
 
   return (

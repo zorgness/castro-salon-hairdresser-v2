@@ -14,7 +14,7 @@ const GalleryImageAdmin = ({ galleryId, getNameImages }) => {
 
   if (status === "done") {
     return (
-      <div>
+      <div className="d-flex justify-content-around flex-wrap gap-3">
         {data?.map(({ id, name }, index) => {
           return (
             <div className={`item-show-item${index + 1} show-item`} key={id}>
