@@ -7,7 +7,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ## Hairdresser web site 
 
 ### Beta version:
-https://castro-hairdresser-fron-web.herokuapp.com/
+https://decastro-hairstylist-front-web.herokuapp.com/
 
 * Back-end: Symfony V6 Api/Platform https://github.com/zorgness/castro-salon
 * Front-end: React JS 
