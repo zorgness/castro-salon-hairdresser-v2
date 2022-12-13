@@ -1,20 +1,43 @@
-import React from 'react'
+import React from "react";
+import Carousel from "react-bootstrap/Carousel";
 
-const Banner2 = () => {
+const Banner = () => {
   return (
-    <div>
-      <section>
-        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/portrait.jpg" alt="" className="rounded" />
-        <article>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-        </article>
-      </section>
-    </div>
-  )
-}
+    <Carousel fade indicators={false} controls={false}>
+      <Carousel.Item>
+        <div className="banner5 ban">
+          <div className="container">
+            <h1>
+              <strong>ANAIS DE CASTRO LEMOS</strong>
+            </h1>
+            <h5>Professionnal Hair Stylist</h5>
+          </div>
+        </div>
+      </Carousel.Item>
 
-export default Banner2
+      <Carousel.Item>
+        <div className="banner6 ban">
+          <div className="container">
+            <h1>
+              <strong>ANAIS DE CASTRO LEMOS</strong>
+            </h1>
+            <h5>Professionnal Hair Stylist</h5>
+          </div>
+        </div>
+      </Carousel.Item>
+
+      <Carousel.Item>
+        <div className="banner7 ban">
+          <div className="container">
+            <h1>
+              <strong>ANAIS DE CASTRO LEMOS</strong>
+            </h1>
+            <h5>Professionnal Hair Stylist</h5>
+          </div>
+        </div>
+      </Carousel.Item>
+    </Carousel>
+  );
+};
+
+export default Banner;

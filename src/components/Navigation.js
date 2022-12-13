@@ -14,15 +14,74 @@ const Navigation = ({ authData, logout }) => {
     logout();
   };
 
+  const appBarIntialStyle = {
+    background: "none",
+    boxShadow: "none",
+  };
+
+  const linkIntialStyle = {
+    color: "white",
+  };
+
+  const handleMouseOver = (e) => {
+    e.target.style.color = isNavTransparent ? "lightgrey" : "black";
+  };
+
+  const handleMouseOut = (e) => {
+    e.target.style.color = isNavTransparent ? "white" : "grey";
+  };
+
+  const [appBarStyle, setAppBarStyle] = React.useState(appBarIntialStyle);
+  const [linkStyle, setLinkStyle] = React.useState(linkIntialStyle);
+  const [isNavTransparent, setIsNavTransparent] = React.useState(true);
+
+  React.useEffect(() => {
+    const onScroll = (e) => {
+      if (e.target.documentElement.scrollTop >= 100) {
+        setAppBarStyle({
+          background: "white",
+          transition: "background .5s ease-out",
+          boxShadow: "0 2px 4px 0 rgba(0, 0, 0, 0.2)",
+        });
+        setIsNavTransparent(false);
+        setLinkStyle({
+          color: "grey",
+          hover: {
+            color: "black",
+          },
+        });
+      } else {
+        setAppBarStyle({
+          background: "transparent",
+          transition: "background .5s ease-out",
+          boxShadow: "none",
+        });
+        setIsNavTransparent(true);
+        setLinkStyle({
+          color: "white",
+          hover: {
+            color: "grey",
+          },
+        });
+      }
+    };
+    window.addEventListener("scroll", onScroll);
+
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
     <>
       <ToastContainer />
       <Navbar
         collapseOnSelect
         expand="lg"
-        bg={authData.isAuthenticated ? "dark" : "white"}
-        variant={authData.isAuthenticated ? "dark" : "white"}
-        className={!authData.isAuthenticated && "border border-bottom-dark"}
+        bg={authData.isAuthenticated ? "dark" : ""}
+        variant={authData.isAuthenticated ? "dark" : "navigate"}
+        className={
+          !authData.isAuthenticated ? "navigation" : "border border-bottom-dark"
+        }
+        style={appBarStyle}
         sticky="top"
       >
         <Container>
@@ -45,13 +104,31 @@ const Navigation = ({ authData, logout }) => {
         <Container className="mx-5">
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="pattaya text-center">
-              <Nav.Link href="/" className="mx-5">
+              <Nav.Link
+                href="/"
+                className="mx-5"
+                style={linkStyle}
+                onMouseOver={handleMouseOver}
+                onMouseOut={handleMouseOut}
+              >
                 Acceuil
               </Nav.Link>
-              <Nav.Link href="/gallerie" className="mx-5">
+              <Nav.Link
+                href="/gallerie"
+                className="mx-5"
+                style={linkStyle}
+                onMouseOver={handleMouseOver}
+                onMouseOut={handleMouseOut}
+              >
                 Gallerie
               </Nav.Link>
-              <Nav.Link href="/contact" className="mx-5">
+              <Nav.Link
+                href="/contact"
+                className="mx-5"
+                style={linkStyle}
+                onMouseOver={handleMouseOver}
+                onMouseOut={handleMouseOut}
+              >
                 Contact
               </Nav.Link>
               {authData.isAuthenticated && (
