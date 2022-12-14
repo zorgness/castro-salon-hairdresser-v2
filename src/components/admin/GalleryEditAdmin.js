@@ -113,83 +113,92 @@ const GalleryEditAdmin = () => {
   };
 
   return (
-    <div className="index-item1">
-      <h1
-        className="pattaya text-center text-decoration-underline m-3"
-        style={{ fontSize: "48px" }}
-      >
-        Gallery Edition
-      </h1>
+    <>
+      <div style={{ background: "white", padding: "40px" }}></div>
+      <div className="index-item1">
+        <h1
+          className="pattaya text-center text-decoration-underline m-3"
+          style={{ fontSize: "48px" }}
+        >
+          Gallery Edition
+        </h1>
 
-      {status === "done" ? (
-        <GalleryImageAdmin galleryId={data?.id} getNameImages={setNameImages} />
-      ) : null}
+        {status === "done" ? (
+          <GalleryImageAdmin
+            galleryId={data?.id}
+            getNameImages={setNameImages}
+          />
+        ) : null}
 
-      <br />
+        <br />
 
-      <Fragment>
-        <div className="text-danger text-right">
-          <p>{error}</p>
-        </div>
-
-        {success && (
-          <div className="text-success text-right">
-            <p>
-              {success}
-              <img src={Butterfly} alt="butterfly" className="avatar-small" />
-            </p>
+        <Fragment>
+          <div className="text-danger text-right">
+            <p>{error}</p>
           </div>
-        )}
-        <Container>
-          <Form onSubmit={handleSubmit}>
-            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-              <Form.Label>Titre</Form.Label>
-              <Form.Control
-                type="text"
-                placeholder="titre"
-                id=""
-                value={titleEdit || ""}
-                onChange={handleTitle}
-              />
-            </Form.Group>
 
-            <Form.Group
-              className="mb-3"
-              controlId="exampleForm.ControlTextarea1"
-            >
-              <Form.Label>Description</Form.Label>
-              <Form.Control
-                as="textarea"
-                rows={3}
-                value={textEdit || ""}
-                onChange={handleText}
-              />
-            </Form.Group>
-
-            <Form.Group controlId="formFileMultiple" className="mb-3">
-              <Form.Label>Multiple images</Form.Label>
-              <Form.Control
-                type="file"
-                multiple
-                onChange={(e) => handleCompressedUpload(e)}
-              />
-            </Form.Group>
-
-            <Form.Group className="text-center">
-              <Button
-                style={{
-                  backgroundColor: "hotpink",
-                  border: "1px solid hotpink",
-                }}
-                type="submit"
+          {success && (
+            <div className="text-success text-right">
+              <p>
+                {success}
+                <img src={Butterfly} alt="butterfly" className="avatar-small" />
+              </p>
+            </div>
+          )}
+          <Container>
+            <Form onSubmit={handleSubmit}>
+              <Form.Group
+                className="mb-3"
+                controlId="exampleForm.ControlInput1"
               >
-                Submit
-              </Button>
-            </Form.Group>
-          </Form>
-        </Container>
-      </Fragment>
-    </div>
+                <Form.Label>Titre</Form.Label>
+                <Form.Control
+                  type="text"
+                  placeholder="titre"
+                  id=""
+                  value={titleEdit || ""}
+                  onChange={handleTitle}
+                />
+              </Form.Group>
+
+              <Form.Group
+                className="mb-3"
+                controlId="exampleForm.ControlTextarea1"
+              >
+                <Form.Label>Description</Form.Label>
+                <Form.Control
+                  as="textarea"
+                  rows={3}
+                  value={textEdit || ""}
+                  onChange={handleText}
+                />
+              </Form.Group>
+
+              <Form.Group controlId="formFileMultiple" className="mb-3">
+                <Form.Label>Multiple images</Form.Label>
+                <Form.Control
+                  type="file"
+                  multiple
+                  onChange={(e) => handleCompressedUpload(e)}
+                />
+              </Form.Group>
+
+              <Form.Group className="text-center">
+                <Button
+                  style={{
+                    backgroundColor: "hotpink",
+                    border: "1px solid hotpink",
+                  }}
+                  type="submit"
+                >
+                  Submit
+                </Button>
+              </Form.Group>
+            </Form>
+          </Container>
+        </Fragment>
+      </div>
+    </>
   );
 };
 

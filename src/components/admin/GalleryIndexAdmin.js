@@ -49,60 +49,66 @@ const GalleryIndexAdmin = () => {
   };
 
   return (
-    <div className="index-item1">
-      <div
-        className="pattaya text-center text-decoration-underline"
-        style={{ fontSize: "48px" }}
-      >
-        Gallery Index
-      </div>
-
-      {show && (
-        <Popup
-          show={show}
-          idItem={idBlogPost}
-          handleClose={handleClose}
-          handleDelete={handleDelete}
-          setShow={setShow}
-        />
-      )}
-
-      <div className="text-end m-5">
-        <Link
-          to={"/admin_gallery_new"}
-          className="btn btn-primary"
-          style={{ backgroundColor: " #670BFF", border: "1px solid  #670BFF" }}
+    <>
+      <div style={{ background: "white", padding: "40px" }}></div>
+      <div className="index-item1">
+        <div
+          className="pattaya text-center text-decoration-underline"
+          style={{ fontSize: "48px" }}
         >
-          Nouveau
-        </Link>
+          Gallery Index
+        </div>
+
+        {show && (
+          <Popup
+            show={show}
+            idItem={idBlogPost}
+            handleClose={handleClose}
+            handleDelete={handleDelete}
+            setShow={setShow}
+          />
+        )}
+
+        <div className="text-end m-5">
+          <Link
+            to={"/admin_gallery_new"}
+            className="btn btn-primary"
+            style={{
+              backgroundColor: " #670BFF",
+              border: "1px solid  #670BFF",
+            }}
+          >
+            Nouveau
+          </Link>
+        </div>
+
+        {status === "done"
+          ? data?.map(({ id, title }) => {
+              return (
+                <Fragment key={id}>
+                  <div className="border border-secondary rounded m-5 p-3 bg-light">
+                    <div className="m-3 text-center ">
+                      <h2 className="pattaya text-secondary">
+                        {capitalizeFirstLetter(title ?? "")}
+                      </h2>
+                      <GalleryThumbnail galleryId={id} />
+                    </div>
+
+                    <div className="d-flex justify-content-around">
+                      <Link to={`/admin_gallery_edit/${id}`} key={id}>
+                        <Button variant="secondary">Modifier</Button>
+                      </Link>
+                      <Button variant="danger" onClick={() => handleShow(id)}>
+                        Supprimer
+                      </Button>
+                    </div>
+                  </div>
+                </Fragment>
+              );
+            })
+          : null}
       </div>
-
-      {status === "done"
-        ? data?.map(({ id, title }) => {
-            return (
-              <Fragment key={id}>
-                <div className="border border-secondary rounded m-5 p-3 bg-light">
-                  <div className="m-3 text-center ">
-                    <h2 className="pattaya text-secondary">
-                      {capitalizeFirstLetter(title ?? "")}
-                    </h2>
-                    <GalleryThumbnail galleryId={id} />
-                  </div>
-
-                  <div className="d-flex justify-content-around">
-                    <Link to={`/admin_gallery_edit/${id}`} key={id}>
-                      <Button variant="secondary">Modifier</Button>
-                    </Link>
-                    <Button variant="danger" onClick={() => handleShow(id)}>
-                      Supprimer
-                    </Button>
-                  </div>
-                </div>
-              </Fragment>
-            );
-          })
-        : null}
-    </div>
+    </>
   );
 };
 

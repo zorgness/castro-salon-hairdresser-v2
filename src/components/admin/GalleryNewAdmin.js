@@ -94,69 +94,75 @@ const GalleryNewAdmin = () => {
   };
 
   return (
-    <div className="content-container index-item1">
-      <div className="m-3">
-        <h1
-          className="pattaya text-center text-decoration-underline"
-          style={{ fontSize: "48px" }}
-        >
-          Gallery New
-        </h1>
-      </div>
-
-      <div className="text-danger text-right">
-        <p>{error}</p>
-      </div>
-
-      {success && (
-        <div className="text-success text-right">
-          <p>
-            {success}
-            <img src={Butterfly} alt="butterfly" className="avatar-small" />
-          </p>
+    <>
+      <div style={{ background: "white", padding: "40px" }}></div>
+      <div className="content-container index-item1">
+        <div className="m-3">
+          <h1
+            className="pattaya text-center text-decoration-underline"
+            style={{ fontSize: "48px" }}
+          >
+            Gallery New
+          </h1>
         </div>
-      )}
 
-      <Container>
-        <Form onSubmit={handleSubmit}>
-          <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-            <Form.Label>Titre</Form.Label>
-            <Form.Control
-              type="text"
-              placeholder="titre"
-              id=""
-              onChange={handleTitle}
-            />
-          </Form.Group>
+        <div className="text-danger text-right">
+          <p>{error}</p>
+        </div>
 
-          <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
-            <Form.Label>Description</Form.Label>
-            <Form.Control as="textarea" rows={3} onChange={handleText} />
-          </Form.Group>
+        {success && (
+          <div className="text-success text-right">
+            <p>
+              {success}
+              <img src={Butterfly} alt="butterfly" className="avatar-small" />
+            </p>
+          </div>
+        )}
 
-          <Form.Group controlId="formFileMultiple" className="mb-3">
-            <Form.Label>Images: 3 maximum et minimum</Form.Label>
-            <Form.Control
-              type="file"
-              multiple
-              onChange={(e) => handleCompressedUpload(e)}
-            />
-          </Form.Group>
+        <Container>
+          <Form onSubmit={handleSubmit}>
+            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+              <Form.Label>Titre</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="titre"
+                id=""
+                onChange={handleTitle}
+              />
+            </Form.Group>
 
-          <Form.Group className="text-center">
-            <Button
-              style={{
-                backgroundColor: "hotpink",
-                border: "1px solid hotpink",
-              }}
-              type="submit"
+            <Form.Group
+              className="mb-3"
+              controlId="exampleForm.ControlTextarea1"
             >
-              Submit
-            </Button>
-          </Form.Group>
-        </Form>
-      </Container>
-    </div>
+              <Form.Label>Description</Form.Label>
+              <Form.Control as="textarea" rows={3} onChange={handleText} />
+            </Form.Group>
+
+            <Form.Group controlId="formFileMultiple" className="mb-3">
+              <Form.Label>Images: 3 maximum et minimum</Form.Label>
+              <Form.Control
+                type="file"
+                multiple
+                onChange={(e) => handleCompressedUpload(e)}
+              />
+            </Form.Group>
+
+            <Form.Group className="text-center">
+              <Button
+                style={{
+                  backgroundColor: "hotpink",
+                  border: "1px solid hotpink",
+                }}
+                type="submit"
+              >
+                Submit
+              </Button>
+            </Form.Group>
+          </Form>
+        </Container>
+      </div>
+    </>
   );
 };
 

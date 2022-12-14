@@ -44,52 +44,61 @@ const TextIntroIndex = () => {
   };
 
   return (
-    <div className="index-item1">
-      <div
-        className="pattaya text-center text-decoration-underline"
-        style={{ fontSize: "48px" }}
-      >
-        Introduction
-      </div>
-
-      {show && (
-        <Popup
-          show={show}
-          idItem={idTextIntro}
-          handleClose={handleClose}
-          handleDelete={handleDelete}
-          setShow={setShow}
-        />
-      )}
-
-      <div className="text-end m-5">
-        <Link
-          to={"/admin_text_intro_new"}
-          className="btn btn-primary"
-          style={{ backgroundColor: " #670BFF", border: "1px solid  #670BFF" }}
+    <>
+      <div style={{ background: "white", padding: "40px" }}></div>
+      <div className="index-item1">
+        <div
+          className="pattaya text-center text-decoration-underline"
+          style={{ fontSize: "48px" }}
         >
-          Nouveau
-        </Link>
-      </div>
+          Introduction
+        </div>
 
-      {status === "done" &&
-        data?.map((textIntro, index) => {
-          return (
-            <Fragment key={index}>
-              <TextIntroShowAdmin textIntro={textIntro} indexPosition={index} />
-              <div className="text-center">
-                <Button
-                  variant="danger"
-                  onClick={() => handleShow(textIntro.id)}
-                  className="mb-3"
-                >
-                  Supprimer
-                </Button>
-              </div>
-            </Fragment>
-          );
-        })}
-    </div>
+        {show && (
+          <Popup
+            show={show}
+            idItem={idTextIntro}
+            handleClose={handleClose}
+            handleDelete={handleDelete}
+            setShow={setShow}
+          />
+        )}
+
+        <div className="text-end m-5">
+          <Link
+            to={"/admin_text_intro_new"}
+            className="btn btn-primary"
+            style={{
+              backgroundColor: " #670BFF",
+              border: "1px solid  #670BFF",
+            }}
+          >
+            Nouveau
+          </Link>
+        </div>
+
+        {status === "done" &&
+          data?.map((textIntro, index) => {
+            return (
+              <Fragment key={index}>
+                <TextIntroShowAdmin
+                  textIntro={textIntro}
+                  indexPosition={index}
+                />
+                <div className="text-center">
+                  <Button
+                    variant="danger"
+                    onClick={() => handleShow(textIntro.id)}
+                    className="mb-3"
+                  >
+                    Supprimer
+                  </Button>
+                </div>
+              </Fragment>
+            );
+          })}
+      </div>
+    </>
   );
 };
 
