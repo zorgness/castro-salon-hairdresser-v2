@@ -239,3 +239,7 @@ nav {
     color: black !important;
   }
 }
+
+.separate-text {
+  color: var(--main-light--green);
+}

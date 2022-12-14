@@ -7,6 +7,19 @@ const TextIntro = ({ textIntro, indexPosition }) => {
   const state = useFetchTextIntroImage(image);
   const { data } = state;
 
+  const textTransform = (text) => {
+    if (!text) {
+      return;
+    }
+    if (text.includes("*")) {
+      const textCut = text.split("*");
+
+      return textCut;
+    } else return <p>{text}</p>;
+  };
+
+  const textToDisplay = textTransform(text);
+
   const styleByIndex =
     indexPosition % 2 === 0
       ? "m-4 d-flex flex-wrap justify-content-around"
@@ -32,6 +45,7 @@ const TextIntro = ({ textIntro, indexPosition }) => {
         <h4 className="m-3 josefine">{text2.toUpperCase()}</h4>
       </div>
     );
+
   return (
     <div className={`index-item${indexPosition + 1}`} key={id}>
       <div className={styleByIndex}>
@@ -40,7 +54,18 @@ const TextIntro = ({ textIntro, indexPosition }) => {
           <h2 className="pattaya text-black" style={{ fontSize: "24px" }}>
             {capitalizeFirstLetter(title)}
           </h2>
-          <p className="poppins">{text}</p>
+          {textToDisplay.length > 1
+            ? textToDisplay.map((part, index) => {
+                return (
+                  <div key={index}>
+                    <p>{part}</p>
+                    {index < textToDisplay.length - 1 ? (
+                      <hr className="separate-text" />
+                    ) : null}
+                  </div>
+                );
+              })
+            : textToDisplay}
         </div>
         <div className="text-center">
           <div>
