@@ -1,7 +1,6 @@
-import React, { useState, Fragment } from "react";
+import React, { useState, useEffect, Fragment } from "react";
 import { Link } from "react-router-dom";
 import { fetchData } from "../../Api/FecthData";
-import { useNavigate } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import Popup from "./PopUp";
 import { galleryDestroy } from "./adminDestroy";
@@ -16,10 +15,13 @@ const GalleryIndexAdmin = () => {
 
   const urlMain = process.env.REACT_APP_URL_MAIN;
 
-  const navigate = useNavigate();
-
+  const [toDisplay, setToDisplay] = useState(null);
   const [show, setShow] = useState(false);
   const [idBlogPost, setIdBlogPost] = useState(null);
+
+  useEffect(() => {
+    setToDisplay(data);
+  }, [data]);
 
   const handleClose = () => setShow(false);
 
@@ -33,7 +35,7 @@ const GalleryIndexAdmin = () => {
     handleClose();
 
     const toDeleteFromS3 = data?.filter((member) => member.id === id);
-
+    setToDisplay(data?.filter((member) => member.id !== id));
     for (let i = 0; i < toDeleteFromS3[0].productImages.length; i++) {
       const filesName = fetchData(urlMain + toDeleteFromS3[0].productImages[i]);
 
@@ -45,7 +47,6 @@ const GalleryIndexAdmin = () => {
     localStorage.removeItem("infoGalleries");
     localStorage.removeItem(`infoGallery${id}`);
     localStorage.removeItem(`infoGalleryImage${id}`);
-    navigate("/gallerie");
   };
 
   return (
@@ -83,7 +84,7 @@ const GalleryIndexAdmin = () => {
         </div>
 
         {status === "done"
-          ? data?.map(({ id, title }) => {
+          ? toDisplay?.map(({ id, title }) => {
               return (
                 <Fragment key={id}>
                   <div className="border border-secondary rounded m-5 p-3 bg-light">

@@ -22,8 +22,6 @@ const GalleryNewAdmin = () => {
 
   const storage = JSON.parse(localStorage.getItem("infoGalleries"));
 
-  storage?.forEach((element) => console.log(element.id));
-
   const handleTitle = (e) => {
     setTitle(e.target.value);
     setError("");
