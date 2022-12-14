@@ -10,24 +10,16 @@ const MessageIndexAdmin = () => {
   const urlContact = `${urlMain}/api/messages`;
 
   const [messages, setMessages] = useState([]);
-  const [load, setLoad] = useState(true);
+
   const [show, setShow] = useState(false);
   const [idMessage, setIdMessage] = useState(null);
 
   useEffect(() => {
-    const getMessages = async () => {
-      const response = await fetchData(urlContact);
-
-      setMessages(response["hydra:member"]);
-    };
-
-    if (load) {
-      return () => {
-        getMessages();
-        setLoad(false);
-      };
-    }
-  }, [load, messages, urlContact]);
+    fetch(urlContact)
+      .then((response) => response.json())
+      .then((data) => setMessages(data["hydra:member"]))
+      .catch((error) => console.log(error.messages));
+  }, [urlContact]);
 
   const dateFormater = (date) => {
     const formatedDate = new Date(date);

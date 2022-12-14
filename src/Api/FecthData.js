@@ -15,7 +15,7 @@ export const fetchData = async (url) => {
     }
 
     const fetchedData = await response.json();
-    console.log(fetchedData);
+
     return fetchedData;
   } catch (err) {
     return err;
