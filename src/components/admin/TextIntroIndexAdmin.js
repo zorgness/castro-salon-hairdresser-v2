@@ -1,5 +1,4 @@
 import React, { useState, Fragment } from "react";
-import { useNavigate } from "react-router-dom";
 import { fetchData } from "../../Api/FecthData";
 import Button from "react-bootstrap/Button";
 import Popup from "./PopUp";
@@ -16,7 +15,11 @@ const TextIntroIndex = () => {
 
   const { data, status } = state;
 
-  const navigate = useNavigate();
+  const [toDisplay, setToDisplay] = useState(null);
+
+  React.useEffect(() => {
+    setToDisplay(data);
+  }, [data]);
 
   const [show, setShow] = useState(false);
   const [idTextIntro, setIdTextIntro] = useState("");
@@ -32,6 +35,7 @@ const TextIntroIndex = () => {
     textIntroDestroy(id);
     handleClose();
     const toDeleteFromS3 = data.filter((member) => member.id === id);
+    setToDisplay(data.filter((member) => member.id !== id));
     const fileName = fetchData(urlMain + toDeleteFromS3[0].image);
     fileName.then((data) => {
       deleteImageFromS3(data.name);
@@ -39,8 +43,6 @@ const TextIntroIndex = () => {
     });
 
     localStorage.removeItem("infoIndex");
-
-    navigate("/");
   };
 
   return (
@@ -78,7 +80,7 @@ const TextIntroIndex = () => {
         </div>
 
         {status === "done" &&
-          data?.map((textIntro, index) => {
+          toDisplay?.map((textIntro, index) => {
             return (
               <Fragment key={index}>
                 <TextIntroShowAdmin

@@ -68,7 +68,7 @@ const TextIntroNewAdmin = () => {
 
       localStorage.removeItem("infoIndex");
 
-      navigate("/");
+      navigate("/admin_text_intro_index");
     }
   };
 
@@ -113,7 +113,9 @@ const TextIntroNewAdmin = () => {
               className="mb-3"
               controlId="exampleForm.ControlTextarea1"
             >
-              <Form.Label>Texte</Form.Label>
+              <Form.Label>
+                Texte, pour faire de séparations utiliser " * "
+              </Form.Label>
               <Form.Control as="textarea" rows={3} onChange={handleText} />
             </Form.Group>
 
