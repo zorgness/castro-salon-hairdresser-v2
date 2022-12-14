@@ -71,7 +71,7 @@ const Navigation = ({ authData, logout }) => {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const expand = "xxl";
+  const expand = "sm";
 
   return (
     <>
@@ -112,7 +112,11 @@ const Navigation = ({ authData, logout }) => {
             id={`offcanvasNavbar-expand-${expand}`}
             aria-labelledby={`offcanvasNavbarLabel-expand-${expand}`}
             placement="end"
-            className={authData.isAuthenticated ? "bg-dark" : "bg-white"}
+            className={
+              authData.isAuthenticated
+                ? "bg-dark offcanvas-container"
+                : "bg-white offcanvas-container"
+            }
           >
             <Offcanvas.Header closeButton>
               <Offcanvas.Title id={`offcanvasNavbarLabel-expand-${expand}`}>
