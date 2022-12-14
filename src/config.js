@@ -1,0 +1,9 @@
+export const POST = "POST";
+export const PUT = "PUT";
+export const DELETE = "DELETE";
+export const urlMain = process.env.REACT_APP_URL_MAIN;
+export const urlBlogPosts = `${urlMain}/api/blog_posts`;
+export const urlProductImage = `${urlMain}/api/product_images`;
+export const urlTextIntros = `${urlMain}/api/text_intros`;
+export const urlCoverImage = `${urlMain}/api/cover_images`;
+export const urlMessage = `${urlMain}/api/messages`;

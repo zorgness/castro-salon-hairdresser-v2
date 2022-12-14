@@ -1,36 +1,37 @@
 import { fetchDataWithMethod } from "../../Api/FetchDataWithMethod";
-
-const urlMain = process.env.REACT_APP_URL_MAIN
+import {
+  DELETE,
+  urlBlogPosts,
+  urlTextIntros,
+  urlMessage,
+} from "../../config.js";
 
 export const galleryDestroy = async (idBlogPost) => {
-
-  const urlBlogPosts = `${urlMain}/api/blog_posts/${idBlogPost}`;
+  const url = urlBlogPosts + "/" + idBlogPost;
 
   const options = {};
 
-  const fetchedData = await fetchDataWithMethod(urlBlogPosts, 'DELETE', options);
+  const fetchedData = await fetchDataWithMethod(url, DELETE, options);
 
-  return fetchedData
-}
+  return fetchedData;
+};
 
 export const textIntroDestroy = async (idTextIntro) => {
-
-  const urlBlogPosts = `${urlMain}/api/text_intros/${idTextIntro}`;
+  const url = urlTextIntros + "/" + idTextIntro;
 
   const options = {};
 
-  const fetchedData = await fetchDataWithMethod(urlBlogPosts, 'DELETE', options);
+  const fetchedData = await fetchDataWithMethod(url, DELETE, options);
 
-  return fetchedData
-}
+  return fetchedData;
+};
 
 export const messageDestroy = async (idMessage) => {
-
-  const urlMessage = `${urlMain}/api/messages/${idMessage}`;
+  const url = urlMessage + "/" + idMessage;
 
   const options = {};
 
-  const fetchedData = await fetchDataWithMethod(urlMessage, 'DELETE', options);
+  const fetchedData = await fetchDataWithMethod(url, DELETE, options);
 
-  return fetchedData
-}
+  return fetchedData;
+};
