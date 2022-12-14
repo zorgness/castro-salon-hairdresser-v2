@@ -8,12 +8,11 @@ import { deleteImageFromS3 } from "../../S3/S3";
 import { capitalizeFirstLetter } from "../../util/capitalize";
 import { useFetchGalleries } from "../../customHooks/useFetchData";
 import GalleryThumbnail from "../GalleryThumbnail";
+import { urlMain } from "../../config";
 
 const GalleryIndexAdmin = () => {
   const state = useFetchGalleries();
   const { data, status } = state;
-
-  const urlMain = process.env.REACT_APP_URL_MAIN;
 
   const [toDisplay, setToDisplay] = useState(null);
   const [show, setShow] = useState(false);

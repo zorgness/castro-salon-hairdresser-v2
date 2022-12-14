@@ -12,6 +12,7 @@ import {
   deleteImageFromS3,
   transformFileName,
 } from "../../../src/S3/S3";
+import { PUT, urlMain, urlBlogPosts } from "../../config";
 import Compressor from "compressorjs";
 
 const GalleryEditAdmin = () => {
@@ -28,9 +29,6 @@ const GalleryEditAdmin = () => {
   const [selectedFiles, setSelectedFiles] = useState([]);
   const [success, setSuccess] = useState("");
   const [error, setError] = useState("");
-
-  const urlMain = process.env.REACT_APP_URL_MAIN;
-  const urlBlogPosts = `${urlMain}/api/blog_posts/${params.id}`;
 
   useEffect(() => {
     setTitleEdit(data?.title);
@@ -85,7 +83,7 @@ const GalleryEditAdmin = () => {
       }
 
       const options = { title: titleEdit, text: textEdit };
-      await fetchDataWithMethod(urlBlogPosts, "PUT", options);
+      await fetchDataWithMethod(urlBlogPosts + "/" + params.id, PUT, options);
 
       for (let i = 0; i < nameImages.length; i++) {
         deleteImageFromS3(nameImages[i].name);
@@ -99,7 +97,7 @@ const GalleryEditAdmin = () => {
         uploadImageFile(selectedFiles[i]);
         await fetchDataWithMethod(
           urlMain + data?.productImages[i],
-          "PUT",
+          PUT,
           options
         );
       }

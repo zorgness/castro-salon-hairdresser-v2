@@ -7,3 +7,4 @@ export const urlProductImage = `${urlMain}/api/product_images`;
 export const urlTextIntros = `${urlMain}/api/text_intros`;
 export const urlCoverImage = `${urlMain}/api/cover_images`;
 export const urlMessage = `${urlMain}/api/messages`;
+export const imagePath = process.env.REACT_APP_AWS_S3_URL;

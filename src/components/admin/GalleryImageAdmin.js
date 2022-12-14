@@ -1,8 +1,8 @@
 import React from "react";
 import { useFetchGalleryImages } from "../../customHooks/useFetchData";
+import { imagePath } from "../../config";
 
 const GalleryImageAdmin = ({ galleryId, getNameImages }) => {
-  const imagePath = process.env.REACT_APP_AWS_S3_URL;
   const state = useFetchGalleryImages(galleryId);
   const { data, status } = state;
 
