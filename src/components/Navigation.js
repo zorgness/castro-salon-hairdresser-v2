@@ -79,7 +79,7 @@ const Navigation = ({ authData, logout }) => {
         bg={authData.isAuthenticated ? "dark" : ""}
         variant={authData.isAuthenticated ? "dark" : "navigate"}
         className={
-          !authData.isAuthenticated ? "navigation" : "border border-bottom-dark"
+          !authData.isAuthenticated ? "navigation" : "border border-dark"
         }
         style={appBarStyle}
         sticky="top"
