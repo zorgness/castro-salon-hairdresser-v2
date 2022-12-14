@@ -5,7 +5,7 @@ const Banner = () => {
   return (
     <Carousel fade indicators={false} controls={false}>
       <Carousel.Item>
-        <div className="banner5 ban">
+        <div className="banner-contact banner5 ban">
           <div className="container">
             <h1>
               <strong>ANAIS DE CASTRO LEMOS</strong>
@@ -16,7 +16,7 @@ const Banner = () => {
       </Carousel.Item>
 
       <Carousel.Item>
-        <div className="banner6 ban">
+        <div className="banner-contact banner6 ban">
           <div className="container">
             <h1>
               <strong>ANAIS DE CASTRO LEMOS</strong>
@@ -27,7 +27,7 @@ const Banner = () => {
       </Carousel.Item>
 
       <Carousel.Item>
-        <div className="banner7 ban">
+        <div className="banner-contact banner7 ban">
           <div className="container">
             <h1>
               <strong>ANAIS DE CASTRO LEMOS</strong>

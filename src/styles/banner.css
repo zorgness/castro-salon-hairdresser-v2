@@ -1,80 +1,45 @@
-.banner1 {
-  /* border-top: 4px solid;
-  border-image: linear-gradient(45deg, white, goldenrod) 1; */
+.banner {
   background-size: cover;
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
-  padding: 150px 0;
+  padding: 200px 0;
+}
+
+.banner1 {
   background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
     url(https://i2-prod.dailyrecord.co.uk/incoming/article24752618.ece/ALTERNATES/s615/1_gettyimages-1135612912-170667a.jpg);
 }
 
 .banner2 {
-  /* border-top: 4px solid;
-  border-image: linear-gradient(45deg, white, goldenrod) 1; */
-  background-size: cover;
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  padding: 150px 0;
   background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
     url(https://i.ibb.co/hcGPGZd/brendan-church-t-X-WLctdhvw-unsplash.jpg);
 }
 
 .banner3 {
-  /* border-top: 4px solid;
-  border-image: linear-gradient(45deg, white, goldenrod) 1; */
-  background-size: cover;
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  padding: 150px 0;
   background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
     url(https://i.ibb.co/gDqMxbc/andrea-donato-MGt5tc-Lebds-unsplash.jpg);
 }
 
-.banner4 {
-  border-top: 4px solid;
-  border-image: linear-gradient(45deg, white, goldenrod) 1;
-  background-size: cover;
-  background-position: center;
-  padding: 240px 0;
-  background-image: url("../images/banner.jpeg");
-}
-
-.banner5 {
-  /* border-top: 4px solid;
-  border-image: linear-gradient(45deg, white, goldenrod) 1; */
+.banner-contact {
   background-size: cover;
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
   padding: 200px 0;
+}
+
+.banner5 {
   background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
     url("../images/banner2.jpeg");
 }
 
 .banner6 {
-  /* border-top: 4px solid;
-  border-image: linear-gradient(45deg, white, goldenrod) 1; */
-  background-size: cover;
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  padding: 200px 0;
   background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
     url("../images/banner1.jpeg");
 }
 
 .banner7 {
-  /* border-top: 4px solid;
-  border-image: linear-gradient(45deg, white, goldenrod) 1; */
-  background-size: cover;
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  padding: 200px 0;
   background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
     url("../images/banner3.jpeg");
 }
@@ -97,7 +62,7 @@
 }
 
 @media (max-width: 768px) {
-  .banner4 {
-    padding: 120px 0;
+  .banner {
+    padding: 160px 0;
   }
 }

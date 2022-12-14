@@ -75,10 +75,10 @@ const TextIntroNewAdmin = () => {
   return (
     <>
       <div style={{ background: "white", padding: "40px" }}></div>
-      <div className="index-item1">
+      <div>
         <div className="m-3">
           <h1
-            className="pattaya text-center text-decoration-underline"
+            className="pattaya text-center text-decoration-underline mt-3"
             style={{ fontSize: "48px" }}
           >
             Text Intro New

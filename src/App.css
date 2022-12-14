@@ -185,7 +185,7 @@ body p {
   flex-wrap: wrap;
 }
 
-section {
+/* section {
   width: 80%;
   margin: 0 auto;
   line-height: 0;
@@ -211,7 +211,7 @@ section div {
 }
 section div:nth-of-type(2) {
   grid-column: 2 / 4;
-}
+} */
 
 .show-item {
   flex: 0;

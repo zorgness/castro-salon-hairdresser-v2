@@ -3,6 +3,7 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
+import Offcanvas from "react-bootstrap/Offcanvas";
 import Hamburger from "../images/hamburger.png";
 import Logo from "../images/logo.jpg";
 import { notify } from "./admin/notify";
@@ -70,6 +71,8 @@ const Navigation = ({ authData, logout }) => {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  const expand = "xxl";
+
   return (
     <>
       <ToastContainer />
@@ -78,9 +81,7 @@ const Navigation = ({ authData, logout }) => {
         expand="lg"
         bg={authData.isAuthenticated ? "dark" : ""}
         variant={authData.isAuthenticated ? "dark" : "navigate"}
-        className={
-          !authData.isAuthenticated ? "navigation" : "border border-dark"
-        }
+        className={!authData.isAuthenticated ? "" : "border border-dark"}
         style={appBarStyle}
         sticky="top"
       >
@@ -89,7 +90,12 @@ const Navigation = ({ authData, logout }) => {
             <img src={Logo} alt="logo" className="avatar-large" />
           </Navbar.Brand>
           {!authData.isAuthenticated ? (
-            <Navbar.Toggle aria-controls="responsive-navbar-nav">
+            <Navbar.Toggle
+              aria-controls="responsive-navbar-nav"
+              className={
+                authData.isAuthenticated ? "bg-dark" : "bg-white opacity-75"
+              }
+            >
               <img
                 src={Hamburger}
                 alt="hamburger-nav"
@@ -102,65 +108,80 @@ const Navigation = ({ authData, logout }) => {
         </Container>
 
         <Container className="mx-5">
-          <Navbar.Collapse id="responsive-navbar-nav">
-            <Nav className="pattaya text-center">
-              <Nav.Link
-                href="/"
-                className="mx-5"
-                style={linkStyle}
-                onMouseOver={handleMouseOver}
-                onMouseOut={handleMouseOut}
-              >
-                Acceuil
-              </Nav.Link>
-              <Nav.Link
-                href="/gallerie"
-                className="mx-5"
-                style={linkStyle}
-                onMouseOver={handleMouseOver}
-                onMouseOut={handleMouseOut}
-              >
-                Gallerie
-              </Nav.Link>
-              <Nav.Link
-                href="/contact"
-                className="mx-5"
-                style={linkStyle}
-                onMouseOver={handleMouseOver}
-                onMouseOut={handleMouseOut}
-              >
-                Contact
-              </Nav.Link>
-              {authData.isAuthenticated && (
-                <>
-                  <NavDropdown title="Admin" id="collasible-nav-dropdown">
-                    <NavDropdown.Item
-                      href="/admin_text_intro_index"
-                      className="mb-2 "
-                    >
-                      AdminIntro
-                    </NavDropdown.Item>
-                    <NavDropdown.Item
-                      href="/admin_gallery_index"
-                      className="mb-2 "
-                    >
-                      AdminGallery
-                    </NavDropdown.Item>
-                    <NavDropdown.Item
-                      href="/admin_message_index"
-                      className="mb-2 "
-                    >
-                      Messages
-                    </NavDropdown.Item>
-                    <NavDropdown.Divider />
-                    <NavDropdown.Item onClick={handleLogout} className="mb-2 ">
-                      Logout
-                    </NavDropdown.Item>
-                  </NavDropdown>
-                </>
-              )}
-            </Nav>
-          </Navbar.Collapse>
+          <Navbar.Offcanvas
+            id={`offcanvasNavbar-expand-${expand}`}
+            aria-labelledby={`offcanvasNavbarLabel-expand-${expand}`}
+            placement="end"
+            className={authData.isAuthenticated ? "bg-dark" : "bg-white"}
+          >
+            <Offcanvas.Header closeButton>
+              <Offcanvas.Title id={`offcanvasNavbarLabel-expand-${expand}`}>
+                <img src={Logo} alt="logo" className="avatar-large" />
+              </Offcanvas.Title>
+            </Offcanvas.Header>
+            <Offcanvas.Body>
+              <Nav className="pattaya text-center">
+                <Nav.Link
+                  href="/"
+                  className="mx-5"
+                  style={linkStyle}
+                  onMouseOver={handleMouseOver}
+                  onMouseOut={handleMouseOut}
+                >
+                  Acceuil
+                </Nav.Link>
+                <Nav.Link
+                  href="/gallerie"
+                  className="mx-5"
+                  style={linkStyle}
+                  onMouseOver={handleMouseOver}
+                  onMouseOut={handleMouseOut}
+                >
+                  Gallerie
+                </Nav.Link>
+                <Nav.Link
+                  href="/contact"
+                  className="mx-5"
+                  style={linkStyle}
+                  onMouseOver={handleMouseOver}
+                  onMouseOut={handleMouseOut}
+                >
+                  Contact
+                </Nav.Link>
+                {authData.isAuthenticated && (
+                  <>
+                    <NavDropdown title="Admin" id="collasible-nav-dropdown">
+                      <NavDropdown.Item
+                        href="/admin_text_intro_index"
+                        className="mb-2 "
+                      >
+                        AdminIntro
+                      </NavDropdown.Item>
+                      <NavDropdown.Item
+                        href="/admin_gallery_index"
+                        className="mb-2 "
+                      >
+                        AdminGallery
+                      </NavDropdown.Item>
+                      <NavDropdown.Item
+                        href="/admin_message_index"
+                        className="mb-2 "
+                      >
+                        Messages
+                      </NavDropdown.Item>
+                      <NavDropdown.Divider />
+                      <NavDropdown.Item
+                        onClick={handleLogout}
+                        className="mb-2 "
+                      >
+                        Logout
+                      </NavDropdown.Item>
+                    </NavDropdown>
+                  </>
+                )}
+              </Nav>
+            </Offcanvas.Body>
+          </Navbar.Offcanvas>
         </Container>
       </Navbar>
     </>
