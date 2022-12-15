@@ -34,8 +34,7 @@ const Map = () => {
 
   return (
     <div>
-      <div></div>
-      <div className="map-container" ref={mapContainerRef} />
+      <div className="map-container" ref={mapContainerRef}></div>
     </div>
   );
 };
