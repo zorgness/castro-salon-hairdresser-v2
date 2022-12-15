@@ -1,8 +1,10 @@
 export const replaceMulCharInString = (_string, _charToReplace) => {
-  const _replaceWith = [];
+  let _replaceWith = [];
   _charToReplace.forEach((element) => {
     if (_string.includes(element)) {
-      _replaceWith.push(`<strong>${element}</strong>`);
+      _replaceWith.push(`<strong class="word-strongify">${element}</strong>`);
+    } else {
+      _charToReplace = _charToReplace.filter((word) => word !== element);
     }
   });
   for (let i = 0; i < _charToReplace.length; i++) {

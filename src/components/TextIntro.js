@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useMemo, useCallback } from "react";
 import { capitalizeFirstLetter } from "../util/capitalize";
 import { useFetchTextIntroImage } from "../customHooks/useFetchData";
+import { replaceMulCharInString } from "./../util/replaceMulCharInString";
+import { wordsToStringify } from "../data/wordsToStrongify";
 
 const TextIntro = ({ textIntro, indexPosition }) => {
   const { id, title, text, image } = textIntro;
@@ -8,14 +10,15 @@ const TextIntro = ({ textIntro, indexPosition }) => {
   const { data } = state;
 
   const textTransform = (text) => {
+    console.log("render");
     if (!text) {
       return;
     }
-    if (text.includes("*")) {
-      const textCut = text.split("*");
-
-      return textCut;
-    } else return <p>{text}</p>;
+    const toDisplay = replaceMulCharInString(text, wordsToStringify);
+    if (toDisplay.includes("*")) {
+      const textSeparate = toDisplay.split("*");
+      return textSeparate;
+    } else return <p>{toDisplay}</p>;
   };
 
   const textToDisplay = textTransform(text);
@@ -58,7 +61,10 @@ const TextIntro = ({ textIntro, indexPosition }) => {
             ? textToDisplay.map((part, index) => {
                 return (
                   <div key={index}>
-                    <p>{part}</p>
+                    <p
+                      dangerouslySetInnerHTML={{ __html: part }}
+                      className=""
+                    ></p>
                     {index < textToDisplay.length - 1 ? (
                       <hr className="separate-text" />
                     ) : null}

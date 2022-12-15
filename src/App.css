@@ -96,6 +96,10 @@ body p {
   font-weight: bold;
 }
 
+.word-strongify {
+  color: #361817;
+}
+
 .poppins {
   font-family: "Poppins", sans-serif;
   font-weight: bolder;

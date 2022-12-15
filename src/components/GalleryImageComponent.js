@@ -1,15 +1,15 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useFetchGalleryImages } from "../customHooks/useFetchData";
+import { imagePath } from "./.././config";
 
 const GalleryImageComponent = ({ galleryId }) => {
-  const imagePath = process.env.REACT_APP_AWS_S3_URL;
   const state = useFetchGalleryImages(galleryId);
   const { data, status } = state;
 
   if (status === "done") {
     return (
       <div className="d-flex justify-content-around flex-wrap gap-3">
-        {data?.map(({ id, name }, index) => {
+        {data?.map(({ id, name }) => {
           return (
             <div key={id}>
               <img
