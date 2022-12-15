@@ -7,10 +7,9 @@ import Butterfly from "../../images/butterfly.png";
 import { fetchDataWithMethod } from "../../Api/FetchDataWithMethod";
 import { uploadImageBlob, transformFileName } from "../../../src/S3/S3";
 import Compressor from "compressorjs";
+import { urlMain } from "../../config";
 
 const TextIntroNewAdmin = () => {
-  const urlMain = process.env.REACT_APP_URL_MAIN;
-
   const [title, setTitle] = useState("");
   const [text, setText] = useState("");
   const [selectedFiles, setSelectedFiles] = useState([]);

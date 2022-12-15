@@ -7,10 +7,9 @@ import { textIntroDestroy } from "./adminDestroy";
 import TextIntroShowAdmin from "./TextIntroShowAdmin";
 import { useFetchTextIntro } from "../../customHooks/useFetchData";
 import { Link } from "react-router-dom";
+import { urlMain } from "../../config";
 
 const TextIntroIndex = () => {
-  const urlMain = process.env.REACT_APP_URL_MAIN;
-
   const state = useFetchTextIntro();
 
   const { data, status } = state;

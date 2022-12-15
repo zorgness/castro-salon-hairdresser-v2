@@ -3,22 +3,20 @@ import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import Popup from "./PopUp";
 import { messageDestroy } from "./adminDestroy";
+import { urlMessage } from "../../config";
 
 const MessageIndexAdmin = () => {
-  const urlMain = process.env.REACT_APP_URL_MAIN;
-  const urlContact = `${urlMain}/api/messages`;
-
   const [messages, setMessages] = useState([]);
 
   const [show, setShow] = useState(false);
   const [idMessage, setIdMessage] = useState(null);
 
   useEffect(() => {
-    fetch(urlContact)
+    fetch(urlMessage)
       .then((response) => response.json())
       .then((data) => setMessages(data["hydra:member"]))
       .catch((error) => console.log(error.messages));
-  }, [urlContact]);
+  }, []);
 
   const dateFormater = (date) => {
     const formatedDate = new Date(date);
