@@ -1,25 +1,6 @@
-.div1 {
-  background: green;
-  padding: 150px 150px;
-}
-.div2 {
-  background: red;
-  padding: 150px 150px;
-}
-.div3 {
-  background: blue;
-  padding: 150px 150px;
-}
-.div4 {
-  background: purple;
-  padding: 150px 150px;
-}
-
-/* Three image containers (use 25% for four, and 50% for two, etc) */
 .column-grid {
   float: left;
   width: 25%;
-  padding: 5px;
 }
 
 /* Clear floats after image containers */
@@ -27,4 +8,15 @@
   content: "";
   clear: both;
   display: table;
+}
+
+@media (max-width: 768px) {
+  .row-grid {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .column-grid {
+    float: left;
+    width: 50%;
+  }
 }

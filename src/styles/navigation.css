@@ -1,0 +1,20 @@
+nav {
+  position: fixed !important;
+  width: 100%;
+}
+
+@media (max-width: 990px) {
+  .navigation {
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+    background-color: white !important;
+  }
+  .nav-link {
+    color: grey !important;
+  }
+  .nav-link:hover {
+    color: black !important;
+  }
+  .offcanvas-container {
+    width: 80% !important;
+  }
+}
