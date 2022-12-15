@@ -6,11 +6,6 @@
   right: 0;
 }
 
-.mapboxgl-canvas {
-  border: 6px solid var(--main-beige);
-  border-radius: 10px;
-}
-
 .sidebarStyle {
   display: inline-block;
   /* position: absolute; */

@@ -5,11 +5,10 @@ import Container from "react-bootstrap/Container";
 import { fetchDataWithMethod } from "../Api/FetchDataWithMethod";
 import { notify } from "./admin/notify";
 import Banner2 from "./../components/Banner2";
+import { urlMessage, POST } from "./../config";
+import MyMap from "./MyMap";
 
 const Contact = () => {
-  const urlMain = process.env.REACT_APP_URL_MAIN;
-  const urlContact = `${urlMain}/api/messages`;
-
   const [email, setEmail] = useState("");
   const [object, setObject] = useState("");
   const [text, setText] = useState("");
@@ -21,7 +20,7 @@ const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const options = { email: email, object: object, text: text };
-    const response = await fetchDataWithMethod(urlContact, "POST", options);
+    const response = await fetchDataWithMethod(urlMessage, POST, options);
     if (response.hasOwnProperty("@id")) {
       setEmail("");
       setObject("");
@@ -88,6 +87,8 @@ const Contact = () => {
           </Form>
         </Container>
       </div>
+
+      <MyMap />
     </div>
   );
 };
