@@ -120,7 +120,7 @@ const Navigation = ({ authData, logout }) => {
           >
             <Offcanvas.Header closeButton>
               <Offcanvas.Title id={`offcanvasNavbarLabel-expand-${expand}`}>
-                <img src={Logo} alt="logo" className="avatar-large" />
+                <h6>ANAIS DE CASTRO LEMOS</h6>
               </Offcanvas.Title>
             </Offcanvas.Header>
             <Offcanvas.Body>

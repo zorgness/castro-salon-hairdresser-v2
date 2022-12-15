@@ -37,7 +37,7 @@ const GalleryShow = () => {
           <div className="d-flex justify-content-center m-4">
             <div>
               <p
-                style={{ width: "380px", fontSize: "20px" }}
+                style={{ width: "340px", fontSize: "20px" }}
                 className="text-start popins"
               >
                 {data?.text}
