@@ -3,6 +3,10 @@ nav {
   width: 100%;
 }
 
+.offcanvas-header {
+  margin-top: 12px !important;
+}
+
 @media (max-width: 990px) {
   .navigation {
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
