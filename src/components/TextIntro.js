@@ -1,4 +1,4 @@
-import React, { useMemo, useCallback } from "react";
+import React from "react";
 import { capitalizeFirstLetter } from "../util/capitalize";
 import { useFetchTextIntroImage } from "../customHooks/useFetchData";
 import { replaceMulCharInString } from "./../util/replaceMulCharInString";
@@ -10,7 +10,6 @@ const TextIntro = ({ textIntro, indexPosition }) => {
   const { data } = state;
 
   const textTransform = (text) => {
-    console.log("render");
     if (!text) {
       return;
     }
@@ -54,7 +53,7 @@ const TextIntro = ({ textIntro, indexPosition }) => {
       <div className={styleByIndex}>
         {bubble}
         <div className="intro">
-          <h2 className="pattaya text-black" style={{ fontSize: "24px" }}>
+          <h2 className="mont-serrat text-black" style={{ fontSize: "24px" }}>
             {capitalizeFirstLetter(title)}
           </h2>
           {textToDisplay.length > 1

@@ -104,6 +104,16 @@ body p {
   font-family: "Poppins", sans-serif;
   font-weight: bolder;
 }
+
+.open-sans {
+  font-family: "Open Sans", sans-serif;
+  font-weight: bolder;
+}
+
+.mont-serrat {
+  font-family: "Montserrat";
+  font-weight: bolder;
+}
 .charm {
   font-family: "Charm", cursive;
   font-weight: bolder;

@@ -124,7 +124,10 @@ const Navigation = ({ authData, logout }) => {
               </Offcanvas.Title>
             </Offcanvas.Header>
             <Offcanvas.Body>
-              <Nav className="pattaya text-center">
+              <Nav
+                className="mont-serrat text-center"
+                style={{ fontSize: "20px" }}
+              >
                 <Nav.Link
                   href="/"
                   className="mx-5"
