@@ -10,6 +10,7 @@
 @import url("./styles/map.css");
 @import url("./styles/grid-image.css");
 @import url("./styles/navigation.css");
+@import url("./styles/gallery.css");
 
 :root {
   --main-chocolate: #742f1a;

@@ -9,7 +9,7 @@ const GalleryImageComponent = ({ galleryId }) => {
   if (status === "done") {
     return (
       <div className="d-flex justify-content-around flex-wrap gap-3">
-        {data?.map(({ id, name }) => {
+        {data?.map(({ id, name }, index) => {
           return (
             <div key={id}>
               <img
@@ -17,7 +17,9 @@ const GalleryImageComponent = ({ galleryId }) => {
                 alt={name}
                 width={240}
                 height={"auto"}
-                className="rounded shadow p-1"
+                className={`rounded shadow p-1 gallery-image  gallery-image${
+                  index + 1
+                }`}
               />
             </div>
           );
