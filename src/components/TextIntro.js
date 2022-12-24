@@ -53,7 +53,9 @@ const TextIntro = ({ textIntro, indexPosition }) => {
       <div className={styleByIndex}>
         {bubble}
         <div className="intro">
-          <h2 className="pattaya text-black">{capitalizeFirstLetter(title)}</h2>
+          <h2 className="pattaya text-black" style={{ fontSize: "24px" }}>
+            {capitalizeFirstLetter(title)}
+          </h2>
           {textToDisplay.length > 1
             ? textToDisplay.map((part, index) => {
                 return (
