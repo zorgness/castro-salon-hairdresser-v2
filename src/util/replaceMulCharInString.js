@@ -1,4 +1,5 @@
 export const replaceMulCharInString = (_string, _charToReplace) => {
+  console.log("ReplaceMulCharInString render");
   let _replaceWith = [];
   _charToReplace.forEach((element) => {
     if (_string.includes(element)) {

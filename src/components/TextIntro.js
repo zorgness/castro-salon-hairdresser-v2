@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { capitalizeFirstLetter } from "../util/capitalize";
 import { useFetchTextIntroImage } from "../customHooks/useFetchData";
 import { replaceMulCharInString } from "./../util/replaceMulCharInString";
@@ -20,7 +20,7 @@ const TextIntro = ({ textIntro, indexPosition }) => {
     } else return <p>{toDisplay}</p>;
   };
 
-  const textToDisplay = textTransform(text);
+  const textToDisplay = useMemo(() => textTransform(text), [text]);
 
   const styleByIndex =
     indexPosition % 2 === 0
